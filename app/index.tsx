@@ -30,8 +30,6 @@ export default function OnboardingPage() {
   usePermissions();
 
   const handlePress = () => {
-    console.log('handlePress');
-
     router.replace('/first_question');
   };
 

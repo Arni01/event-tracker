@@ -1,5 +1,6 @@
 import { Pressable } from 'react-native';
 import Animated, {
+  runOnJS,
   SharedValue,
   useAnimatedStyle,
   withSpring,
@@ -20,8 +21,6 @@ export const OnboardingButton: FC<OnboardingButtonProps> = ({
 }) => {
   const { white } = useThemeColor();
   const rnBtnStyle = useAnimatedStyle(() => {
-    console.log(isLast.value);
-
     return {
       width: isLast.value
         ? withSpring(140, { duration: 2000 })

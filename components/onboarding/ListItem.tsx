@@ -42,7 +42,7 @@ const ListItem = ({ item, index, x }: Props) => {
 
   return (
     <Animated.View
-      className={'w-full h-full items-center justify-center gap-2'}
+      className={'w-full h-full items-center justify-center gap-y-4'}
       style={[{ width: SCREEN_WIDTH }, rnImageStyle]}
     >
       <Image

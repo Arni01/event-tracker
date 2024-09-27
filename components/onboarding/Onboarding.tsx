@@ -11,6 +11,7 @@ import ListItem from '@/components/onboarding/ListItem';
 import { PaginationElement } from '@/components/onboarding/PaginationComponent';
 import { OnboardingButton } from '@/components/onboarding/Button';
 import { DataModel } from './DataModel';
+import images from '@/constants/images';
 
 interface OnboardingProps {
   data: DataModel[];
@@ -43,8 +44,6 @@ export const OnboardingComponent: FC<OnboardingProps> = ({ data, onPress }) => {
   );
 
   const isLastItem = useDerivedValue(() => {
-    console.log('isLastItem', flatListIndex.value, data.length - 1);
-
     return flatListIndex.value === data.length - 1;
   });
 
