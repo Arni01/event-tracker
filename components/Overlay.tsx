@@ -1,48 +1,39 @@
-import { useHeaderHeight } from '@react-navigation/elements';
 import { Canvas, DiffRect, rect, rrect } from '@shopify/react-native-skia';
-import { FC, PropsWithChildren } from 'react';
-import { Dimensions, Platform, StyleSheet, Text, View } from 'react-native';
+import { FC } from 'react';
+import { Dimensions, StyleSheet } from 'react-native';
 
 const { width, height } = Dimensions.get('window');
 
-const innerDimension = 300;
-
-function getOuter(currentHeight: number) {
-  return rrect(rect(0, 0, width, currentHeight), 0, 0);
+function getOuter() {
+  return rrect(rect(0, 0, width, height), 0, 0);
 }
 
-function getInner(currentHeight: number) {
+function getInner(innerWidth: number, innerHeight: number) {
   return rrect(
     rect(
-      width / 2 - innerDimension / 2,
-      currentHeight / 2 - innerDimension / 2,
-      innerDimension,
-      innerDimension
+      width / 2 - innerWidth / 2,
+      height / 2 - innerHeight / 2,
+      innerWidth,
+      innerHeight
     ),
     50,
     50
   );
 }
 
-export const Overlay = () => {
-  const headerHeight = useHeaderHeight();
-  const currentHeight = height;
+interface OverlayProps {
+  innerWidth: number;
+  innerHeight: number;
+}
 
-  // const currentHeight = height - headerHeight;
-
+export const Overlay: FC<OverlayProps> = ({ innerWidth, innerHeight }) => {
   return (
-    <Canvas
-      className="flex-1"
-      style={
-        // Platform.OS === 'android' ? { flex: 1 } :
-        StyleSheet.absoluteFillObject
-      }
-    >
+    <Canvas className="flex-1" style={StyleSheet.absoluteFillObject}>
       <DiffRect
-        inner={getInner(currentHeight)}
-        outer={getOuter(currentHeight)}
+        inner={getInner(innerWidth, innerHeight)}
+        outer={getOuter()}
         color="black"
-        opacity={0.5}
+        opacity={0.9}
       />
     </Canvas>
   );

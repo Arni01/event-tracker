@@ -7,9 +7,9 @@ import Animated, {
   useSharedValue,
 } from 'react-native-reanimated';
 import { FC, useCallback } from 'react';
-import ListItem from '@/components/onboarding/ListItem';
-import { PaginationElement } from '@/components/onboarding/PaginationComponent';
-import { OnboardingButton } from '@/components/onboarding/Button';
+import ListItem from '@/feature/onboarding/ListItem';
+import { PaginationElement } from '@/feature/onboarding/PaginationComponent';
+import { OnboardingButton } from '@/feature/onboarding/Button';
 import { DataModel } from './DataModel';
 import images from '@/constants/images';
 

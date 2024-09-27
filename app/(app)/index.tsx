@@ -6,8 +6,11 @@ import {
   useQuestionNavigation,
 } from '@/hooks/useQuestionNavigation';
 import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
+import { useState } from 'react';
+import { Scanner } from '@/feature/scanner/Scanner';
 
 export default function QuestionStart() {
+  const [isOpenScanner, setIsOpenScanner] = useState(false);
   const nextQuestion = useQuestionNavigation(QuestionRouter.FIRST_QUESTION);
 
   return (
@@ -20,7 +23,7 @@ export default function QuestionStart() {
 
       <View style={{ gap: 20 }}>
         <CustomButton
-          handlePress={() => router.push('/scanner')}
+          handlePress={() => setIsOpenScanner(true)}
           title="Scan"
         ></CustomButton>
 
@@ -34,6 +37,14 @@ export default function QuestionStart() {
           title="Second question"
         ></CustomButton>
       </View>
+      <Scanner
+        isVisible={isOpenScanner}
+        onClose={() => setIsOpenScanner(false)}
+        onScanned={(data) => {
+          console.log('RESULT_OF_SCANNING: ', data);
+          // nextQuestion();
+        }}
+      />
     </ThemedSafeAreaView>
   );
 }

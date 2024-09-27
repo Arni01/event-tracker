@@ -2,9 +2,9 @@ import { StatusBar } from 'expo-status-bar';
 import images from '@/constants/images';
 import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
 import { useThemeColor } from '@/hooks/useThemeColor';
-import { usePermissions } from '@/hooks/usePermissions';
-import { router } from 'expo-router';
-import { OnboardingComponent } from '@/components/onboarding';
+import { router, Stack } from 'expo-router';
+import { OnboardingComponent } from '@/feature/onboarding';
+import { useGlobalContext } from '@/context/GlobalProvider';
 
 const pages = [
   {
@@ -25,17 +25,23 @@ const pages = [
 ];
 
 export default function OnboardingPage() {
+  const { closeOnboarding } = useGlobalContext();
   const { primary } = useThemeColor();
 
-  usePermissions();
-
   const handlePress = () => {
-    router.replace('/first_question');
+    closeOnboarding();
+    router.replace('/');
   };
 
   return (
     <ThemedSafeAreaView>
-      <StatusBar backgroundColor={primary} style="light" />
+      <Stack.Screen
+        options={{
+          headerShown: false,
+        }}
+      />
+      {/* <StatusBar backgroundColor={primary} style="light" /> */}
+      <StatusBar hidden={true} />
       <OnboardingComponent data={pages} onPress={handlePress} />
 
       {/* <ScrollView

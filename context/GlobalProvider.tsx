@@ -1,19 +1,38 @@
 import { createContext, PropsWithChildren, useContext, useState } from 'react';
 
 interface GlobalContextProps {
-  isLogged: boolean;
+  isActiveOnboarding: boolean;
+  closeOnboarding: () => void;
 }
+const GlobalContext = createContext<GlobalContextProps>({
+  isActiveOnboarding: true,
+  closeOnboarding: () => {},
+});
 
-const GlobalContext = createContext<GlobalContextProps>({ isLogged: false });
-export const useGlobalContext = () => useContext(GlobalContext);
+export const useGlobalContext = () => {
+  const value = useContext(GlobalContext);
+
+  if (process.env.NODE_ENV !== 'production') {
+    if (!value) {
+      throw new Error(
+        'useGlobalContext must be wrapped in a <GlobalProvider />'
+      );
+    }
+  }
+
+  return value;
+};
 
 const GlobalProvider = ({ children }: PropsWithChildren) => {
-  const [isLogged, setIsLogged] = useState(false);
+  const [isActiveOnboarding, setIsActiveOnboarding] = useState(true);
 
   return (
     <GlobalContext.Provider
       value={{
-        isLogged,
+        isActiveOnboarding: isActiveOnboarding,
+        closeOnboarding: () => {
+          setIsActiveOnboarding(false);
+        },
       }}
     >
       {children}

@@ -20,6 +20,7 @@ import Animated, {
   useAnimatedStyle,
   withTiming,
 } from 'react-native-reanimated';
+import { ModalComponent } from '@/components/modal/Modal';
 
 interface BarcodeScanningResult {
   boundingBox: BarcodeBounds;
@@ -66,7 +67,6 @@ export default function Scanner() {
 
   const [top, setTop] = useState(50);
   const [left, setLeft] = useState(50);
-  const [right, setRight] = useState(50);
   const [width, setWidth] = useState(100);
   const [height, setHeight] = useState(100);
 
@@ -93,22 +93,52 @@ export default function Scanner() {
         textStyles="text-white"
       ></CustomButton>
 
-      {/* <Stack.Screen
-        options={{
-          title: 'Scan a code',
-          headerBlurEffect: 'systemMaterial',
-          // headerLeft: () => (
-          //   <Ionicons
-          //     name={backIcon}
-          //     size={25}
-          //     color="white"
-          //     onPress={() => router.dismissAll()}
-          //   />
-          // ),
-        }}
-      /> */}
+      {/* <ModalComponent isVisible={isVisible} onClose={() => setIsVisible(false)}>
+        <CameraView
+          className="w-full h-full"
+          facing="back"
+          mode="picture"
+          ratio="16:9"
+          barcodeScannerSettings={{
+            barcodeTypes: ['qr', 'code128'],
+          }}
+          active={isVisible}
+          onBarcodeScanned={(result) => {
+            const { data, boundingBox } =
+              result as unknown as BarcodeScanningResult;
+            const innerDimension = 300;
+            const xHole = SCREEN_WIDTH / 2 - innerDimension / 2;
+            const yHole = SCREEN_HEIGHT / 2 - innerDimension / 2;
 
-      <Animated.View
+            if (data && !qrLock.current) {
+              if (
+                left > xHole &&
+                left + width < xHole + innerDimension &&
+                top > yHole &&
+                top + height < yHole + innerDimension
+              ) {
+                console.log(result);
+              }
+
+              setTop(boundingBox.origin.x);
+              setLeft(
+                SCREEN_WIDTH - boundingBox.origin.y - boundingBox.size.height
+              );
+              setWidth(boundingBox.size.height);
+              setHeight(boundingBox.size.width);
+
+              // qrLock.current = true;
+              // setTimeout(async () => {
+              //   await Linking.openURL(data);
+              // }, 500);
+            }
+          }}
+        >
+          {Platform.OS !== 'web' && <Overlay />}
+        </CameraView>
+      </ModalComponent> */}
+
+      {/* <Animated.View
         className={'bg-primary'}
         style={[StyleSheet.absoluteFillObject, rnModalStyle]}
       >
@@ -125,93 +155,15 @@ export default function Scanner() {
                 className="absolute border-red-600 border-2 z-10"
                 style={{
                   left: left,
-                  // right: right,
                   top: top,
                   width: width,
                   height: height,
                 }}
               />
-
-              <CameraView
-                // style={StyleSheet.absoluteFillObject}
-                className="w-full h-full"
-                facing="back"
-                mode="picture"
-                ratio="16:9"
-                barcodeScannerSettings={{
-                  barcodeTypes: ['qr', 'code128'],
-                }}
-                onBarcodeScanned={(result) => {
-                  const { data, cornerPoints, boundingBox } =
-                    result as unknown as BarcodeScanningResult;
-                  const innerDimension = 300;
-                  const xHole = SCREEN_WIDTH / 2 - innerDimension / 2;
-                  const yHole = SCREEN_HEIGHT / 2 - innerDimension / 2;
-
-                  if (data && !qrLock.current) {
-                    setTop(boundingBox.origin.x);
-                    setLeft(
-                      SCREEN_WIDTH -
-                        boundingBox.origin.y -
-                        boundingBox.size.height
-                    );
-                    // setRight(boundingBox.origin.y);
-                    setWidth(boundingBox.size.height);
-                    setHeight(boundingBox.size.width);
-                    // const xMin = Math.min(...cornerPoints.map((p) => p.x));
-                    // const xMax = Math.max(...cornerPoints.map((p) => p.x));
-                    // const yMin = Math.min(...cornerPoints.map((p) => p.y));
-                    // const yMax = Math.max(...cornerPoints.map((p) => p.y));
-                    // setLeft(xMin);
-                    // setTop(yMin);
-                    // setWidth(xMax - xMin);
-                    // setHeight(yMax - yMin);
-
-                    // setLeft(cornerPoints[0].x);
-                    // setTop(cornerPoints[0].y);
-                    // setWidth(cornerPoints[1].x - cornerPoints[0].x);
-                    // setHeight(cornerPoints[2].y - cornerPoints[1].y);
-
-                    // console.log('POINTS', cornerPoints, 'BOUND', boundingBox);
-
-                    // const barcodeBounds = {
-                    //   height: boundingBox.size.width,
-                    //   width: boundingBox.size.height,
-                    //   left:
-                    //     SCREEN_WIDTH -
-                    //     boundingBox.origin.y -
-                    //     boundingBox.size.height,
-                    //   top: boundingBox.origin.x,
-                    // };
-
-                    // setTop(barcodeBounds.left);
-                    // setLeft(barcodeBounds.top);
-                    // setWidth(barcodeBounds.width);
-                    // setHeight(barcodeBounds.height);
-                    // console.log(barcodeBounds);
-
-                    if (
-                      left > xHole &&
-                      left + width < xHole + innerDimension &&
-                      top > yHole &&
-                      top + height < yHole + innerDimension
-                    ) {
-                      console.log(result);
-                    }
-
-                    // qrLock.current = true;
-                    // setTimeout(async () => {
-                    //   await Linking.openURL(data);
-                    // }, 500);
-                  }
-                }}
-              >
-                {Platform.OS !== 'web' && <Overlay />}
-              </CameraView>
             </View>
           </View>
         )}
-      </Animated.View>
+      </Animated.View> */}
     </ThemedSafeAreaView>
   );
 }
