@@ -77,19 +77,19 @@ export default function Scanner() {
       <CustomButton
         handlePress={() => setIsVisible(true)}
         title="Open modal"
-        containerStyles="w-full mt-4"
+        containerClass="w-full mt-4"
         textStyles="text-white"
       ></CustomButton>
       <CustomButton
         handlePress={() => router.back()}
         title="Back"
-        containerStyles="w-full mt-4"
+        containerClass="w-full mt-4"
         textStyles="text-white"
       ></CustomButton>
       <CustomButton
         handlePress={() => router.back()}
         title="Back"
-        containerStyles="w-full mt-4"
+        containerClass="w-full mt-4"
         textStyles="text-white"
       ></CustomButton>
 

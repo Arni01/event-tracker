@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import images from '@/constants/images';
 import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
 import { useThemeColor } from '@/hooks/useThemeColor';
-import { router, Stack } from 'expo-router';
+import { Redirect, router, Stack } from 'expo-router';
 import { OnboardingComponent } from '@/feature/onboarding';
 import { useGlobalContext } from '@/context/GlobalProvider';
 
@@ -25,8 +25,12 @@ const pages = [
 ];
 
 export default function OnboardingPage() {
-  const { closeOnboarding } = useGlobalContext();
+  const { closeOnboarding, isActiveOnboarding } = useGlobalContext();
   const { primary } = useThemeColor();
+
+  if (!isActiveOnboarding) {
+    <Redirect href="/" />;
+  }
 
   const handlePress = () => {
     closeOnboarding();

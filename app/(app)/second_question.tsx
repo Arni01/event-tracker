@@ -17,7 +17,7 @@ const SecondQuestionScreen = () => {
         <CustomButton
           title="Next Question"
           handlePress={nextQuestion}
-          containerStyles="w-full"
+          containerClass="w-full"
         />
       </View>
     </SafeAreaView>

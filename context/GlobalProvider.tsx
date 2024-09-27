@@ -24,7 +24,7 @@ export const useGlobalContext = () => {
 };
 
 const GlobalProvider = ({ children }: PropsWithChildren) => {
-  const [isActiveOnboarding, setIsActiveOnboarding] = useState(true);
+  const [isActiveOnboarding, setIsActiveOnboarding] = useState(false);
 
   return (
     <GlobalContext.Provider

@@ -1,10 +1,15 @@
 import { FC } from 'react';
-import { ActivityIndicator, Text, TouchableOpacity } from 'react-native';
+import {
+  ActivityIndicator,
+  Pressable,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 
 interface CustomButtonProps {
   title: string;
   handlePress: () => void;
-  containerStyles?: string;
+  containerClass?: string;
   textStyles?: string;
   loading?: boolean;
   disabled?: boolean;
@@ -13,18 +18,21 @@ interface CustomButtonProps {
 export const CustomButton: FC<CustomButtonProps> = ({
   title,
   handlePress,
-  containerStyles,
+  containerClass,
   textStyles,
   loading,
   disabled,
 }) => {
   return (
-    <TouchableOpacity
+    <Pressable
       onPress={() => handlePress()}
-      activeOpacity={0.7}
-      className={`bg-secondary rounded-xl min-h-[62px] flex flex-row justify-center items-center ${containerStyles} ${
+      // activeOpacity={0.7}
+      className={`bg-secondary rounded-xl min-h-[62px] w-full flex-row justify-center items-center ${containerClass} ${
         loading ? 'opacity-50' : ''
       }`}
+      style={({ pressed }) => ({
+        opacity: pressed ? 0.7 : 1,
+      })}
       disabled={loading || disabled}
     >
       <Text className={`text-primary font-psemibold text-lg ${textStyles}`}>
@@ -39,6 +47,6 @@ export const CustomButton: FC<CustomButtonProps> = ({
           className="ml-2"
         />
       )}
-    </TouchableOpacity>
+    </Pressable>
   );
 };

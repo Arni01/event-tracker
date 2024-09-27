@@ -1,5 +1,4 @@
 import { Text, View } from 'react-native';
-import { router } from 'expo-router';
 import { CustomButton } from '@/components/CustomButton';
 import {
   QuestionRouter,
@@ -14,29 +13,31 @@ export default function QuestionStart() {
   const nextQuestion = useQuestionNavigation(QuestionRouter.FIRST_QUESTION);
 
   return (
-    <ThemedSafeAreaView>
-      <View className="flex my-6 px-4 space-y-6">
-        <View className="flex justify-between items-start flex-row mb-6">
+    <ThemedSafeAreaView className="justify-center items-center px-4">
+      <View>
+        <View className="justify-between items-start flex-row mb-6">
           <Text className="font-psemibold text-2xl text-white"></Text>
         </View>
       </View>
 
-      <View style={{ gap: 20 }}>
+      <View className="w-full justify-center items-center" style={{ gap: 20 }}>
         <CustomButton
           handlePress={() => setIsOpenScanner(true)}
           title="Scan"
+          // containerClass="mb-4"
         ></CustomButton>
 
-        <CustomButton
+        {/* <CustomButton
           handlePress={() => router.push('/helper')}
           title="Helper"
-        ></CustomButton>
+        ></CustomButton> */}
 
         <CustomButton
           handlePress={nextQuestion}
           title="Second question"
         ></CustomButton>
       </View>
+
       <Scanner
         isVisible={isOpenScanner}
         onClose={() => setIsOpenScanner(false)}
