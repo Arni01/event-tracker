@@ -1,10 +1,5 @@
 import { FC } from 'react';
-import {
-  ActivityIndicator,
-  Pressable,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
+import { ActivityIndicator, Pressable, Text } from 'react-native';
 
 interface CustomButtonProps {
   title: string;
@@ -26,8 +21,7 @@ export const CustomButton: FC<CustomButtonProps> = ({
   return (
     <Pressable
       onPress={() => handlePress()}
-      // activeOpacity={0.7}
-      className={`bg-secondary rounded-xl min-h-[62px] w-full flex-row justify-center items-center ${containerClass} ${
+      className={`bg-secondary rounded-xl min-h-[62px] basis-[62px] flex-shrink-0 w-full flex-row justify-center items-center ${containerClass} ${
         loading ? 'opacity-50' : ''
       }`}
       style={({ pressed }) => ({

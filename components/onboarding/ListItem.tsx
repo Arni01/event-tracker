@@ -13,7 +13,7 @@ type Props = {
   x: SharedValue<number>;
 };
 
-const ListItem = ({ item, index, x }: Props) => {
+const ListItemComponent = ({ item, index, x }: Props) => {
   const { width: SCREEN_WIDTH } = useWindowDimensions();
   const rnImageStyle = useAnimatedStyle(() => {
     const translateY = interpolate(
@@ -57,4 +57,4 @@ const ListItem = ({ item, index, x }: Props) => {
   );
 };
 
-export default React.memo(ListItem);
+export const ListItem = React.memo(ListItemComponent);

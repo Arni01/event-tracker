@@ -1,28 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import images from '@/constants/images';
-import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { Redirect, router, Stack } from 'expo-router';
-import { OnboardingComponent } from '@/feature/onboarding';
+import { AppOnboarding } from '@/feature/appOnboarding';
 import { useGlobalContext } from '@/context/GlobalProvider';
-
-const pages = [
-  {
-    id: '1',
-    text: 'Trusted by millions of people, part of one part',
-    image: images.cards,
-  },
-  {
-    id: '2',
-    text: 'Spend money abroad, and track your expense',
-    image: images.cards,
-  },
-  {
-    id: '3',
-    text: 'Receive Money From Anywhere In The World',
-    image: images.cards,
-  },
-];
 
 export default function OnboardingPage() {
   const { closeOnboarding, isActiveOnboarding } = useGlobalContext();
@@ -38,7 +18,7 @@ export default function OnboardingPage() {
   };
 
   return (
-    <ThemedSafeAreaView>
+    <>
       <Stack.Screen
         options={{
           headerShown: false,
@@ -46,7 +26,7 @@ export default function OnboardingPage() {
       />
       {/* <StatusBar backgroundColor={primary} style="light" /> */}
       <StatusBar hidden={true} />
-      <OnboardingComponent data={pages} onPress={handlePress} />
+      <AppOnboarding onPress={handlePress} />
 
       {/* <ScrollView
         contentContainerStyle={{
@@ -92,6 +72,6 @@ export default function OnboardingPage() {
           />
         </View>
       </ScrollView> */}
-    </ThemedSafeAreaView>
+    </>
   );
 }
