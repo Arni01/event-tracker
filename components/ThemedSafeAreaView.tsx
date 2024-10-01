@@ -1,4 +1,3 @@
-import { useThemeColor } from '@/hooks/useThemeColor';
 import {
   SafeAreaView,
   type SafeAreaViewProps,
