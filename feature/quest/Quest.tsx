@@ -1,14 +1,20 @@
 import { QuestLayout } from '@/components/QuestLayout';
 import images from '@/constants/images';
 import { FC, PropsWithChildren } from 'react';
-import { View, Text, Image, ScrollView } from 'react-native';
+import { View, Text, Image, ScrollView, ImageURISource } from 'react-native';
 
 const quest = {
-  imgUrl: images.thumbnail,
-  text: 'TEST QUEST',
-  helpers: [
+  imgUrl: images.cards as ImageURISource,
+  text: 'Test quest text here test quest text here test quest text here',
+  hints: [
     {
-      text: 'TEST HELPER',
+      text: 'test hint 1',
+    },
+    {
+      text: 'test hint 2',
+    },
+    {
+      text: 'test hint 3',
     },
   ],
 };
@@ -17,7 +23,7 @@ export const QuestFeature: FC<PropsWithChildren> = ({ children }) => {
   return (
     <QuestLayout
       onPressHelp={() => {}}
-      containerClass="w-full flex-1 h-full pb-[20px]"
+      containerClass="flex-1 w-full h-full pb-[20px]"
     >
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -29,26 +35,32 @@ export const QuestFeature: FC<PropsWithChildren> = ({ children }) => {
           paddingTop: 60,
         }}
       >
-        <View className="flex-row justify-center items-center rounded-xl overflow-hidden">
-          <Image source={quest.imgUrl} className="w-full" resizeMode="cover" />
+        <View style={{ gap: 20 }}>
+          <View className="flex-row w-full justify-center items-center rounded-xl overflow-hidden">
+            <Image
+              source={quest.imgUrl}
+              className="w-full aspect-[4/3]"
+              resizeMode="cover"
+            />
+          </View>
+          <View className="justify-center" style={{ gap: 30 }}>
+            <Text className="text-3xl font-semibold text-white text-center">
+              {quest.text}
+            </Text>
+            <View className="justify-center" style={{ gap: 10 }}>
+              {quest.hints.map((hint, index) => (
+                <View className="bg-info-400 rounded-lg p-2" key={index}>
+                  <Text
+                    key={hint.text}
+                    className="text-2xl text-accent text-center"
+                  >
+                    {hint.text}
+                  </Text>
+                </View>
+              ))}
+            </View>
+          </View>
         </View>
-        <Text className="text-3xl font-semibold text-white text-center">
-          {quest.text}
-        </Text>
-
-        <View className="flex-row justify-center items-center rounded-xl overflow-hidden">
-          <Image source={quest.imgUrl} className="w-full" resizeMode="cover" />
-        </View>
-        <Text className="text-3xl font-semibold text-white text-center">
-          {quest.text}
-        </Text>
-
-        <View className="flex-row justify-center items-center rounded-xl overflow-hidden">
-          <Image source={quest.imgUrl} className="w-full" resizeMode="cover" />
-        </View>
-        <Text className="text-3xl font-semibold text-white text-center">
-          {quest.text}
-        </Text>
       </ScrollView>
 
       {children}

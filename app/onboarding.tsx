@@ -1,12 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { useThemeColor } from '@/hooks/useThemeColor';
 import { Redirect, router, Stack } from 'expo-router';
 import { AppOnboarding } from '@/feature/appOnboarding';
 import { useGlobalContext } from '@/context/GlobalProvider';
 
 export default function OnboardingPage() {
   const { closeOnboarding, isActiveOnboarding } = useGlobalContext();
-  const { primary } = useThemeColor();
 
   if (!isActiveOnboarding) {
     <Redirect href="/" />;

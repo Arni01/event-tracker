@@ -14,7 +14,7 @@ export const QuestLayout: FC<QuestLayoutProps & PropsWithChildren> = ({
   containerClass,
   children,
 }) => {
-  const { secondary } = useThemeColor();
+  const { accent } = useThemeColor();
 
   return (
     <ThemedSafeAreaView
@@ -24,7 +24,7 @@ export const QuestLayout: FC<QuestLayoutProps & PropsWithChildren> = ({
         <Pressable onPress={onPressHelp} className="p-4">
           <MaterialCommunityIcons
             name="lightbulb-on-outline"
-            color={secondary.DEFAULT}
+            color={accent.DEFAULT}
             size={24}
           />
         </Pressable>

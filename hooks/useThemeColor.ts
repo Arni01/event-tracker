@@ -6,7 +6,7 @@ import * as SystemUI from 'expo-system-ui';
 import Colors from '@/constants/Colors';
 
 export function useThemeColor() {
-  SystemUI.setBackgroundColorAsync(Colors.primary);
+  SystemUI.setBackgroundColorAsync(Colors.primary.DEFAULT);
 
   return Colors;
 }

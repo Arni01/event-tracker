@@ -57,7 +57,7 @@ export const OnboardingButton: FC<OnboardingButtonProps> = ({
     >
       <Animated.View
         className={
-          'flex-row px-6 py-4 rounded-full bg-secondary items-center justify-center overflow-hidden h-[60px]'
+          'flex-row px-6 py-4 rounded-full bg-accent items-center justify-center overflow-hidden h-[60px]'
         }
         style={rnBtnStyle}
       >

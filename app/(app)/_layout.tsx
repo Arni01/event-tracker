@@ -24,10 +24,10 @@ export default function RootLayout() {
     <Stack
       screenOptions={{
         contentStyle: {
-          backgroundColor: primary,
+          backgroundColor: primary.DEFAULT,
         },
         headerStyle: {
-          backgroundColor: primary,
+          backgroundColor: primary.DEFAULT,
         },
         headerTintColor: white.DEFAULT,
         animation: 'slide_from_right',

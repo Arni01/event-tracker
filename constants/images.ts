@@ -5,9 +5,8 @@ import path from '../assets/images/path.png';
 import logo from '../assets/images/logo.png';
 import logoSmall from '../assets/images/logo-small.png';
 import empty from '../assets/images/empty.png';
-import { ImageURISource } from 'react-native';
 
-const images: Record<string, ImageURISource> = {
+export default {
   profile,
   thumbnail,
   cards,
@@ -16,5 +15,3 @@ const images: Record<string, ImageURISource> = {
   logoSmall,
   empty,
 };
-
-export default images;

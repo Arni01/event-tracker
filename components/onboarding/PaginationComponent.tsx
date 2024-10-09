@@ -16,7 +16,7 @@ type Props = {
 
 export const PaginationElement = ({ length, x }: Props) => {
   const { width: SCREEN_WIDTH } = useWindowDimensions();
-  const { secondary, gray } = useThemeColor();
+  const { accent, white } = useThemeColor();
 
   const PaginationComponent = useCallback(({ index }: { index: number }) => {
     const itemRnStyle = useAnimatedStyle(() => {
@@ -38,7 +38,7 @@ export const PaginationElement = ({ length, x }: Props) => {
           index * SCREEN_WIDTH,
           (index + 1) * SCREEN_WIDTH,
         ],
-        [gray[100], secondary.DEFAULT, gray[100]]
+        [white[200], accent.DEFAULT, white[200]]
       );
 
       return {
