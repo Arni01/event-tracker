@@ -8,6 +8,15 @@ const quest = {
   text: 'Test quest text here test quest text here test quest text here',
   hints: [
     {
+      text: 'test hint 1 rgrdhd dhdr drhehdrhdrh djhd ',
+    },
+    {
+      text: 'test hint 2',
+    },
+    {
+      text: 'test hint 3',
+    },
+    {
       text: 'test hint 1',
     },
     {
@@ -49,10 +58,10 @@ export const QuestFeature: FC<PropsWithChildren> = ({ children }) => {
             </Text>
             <View className="justify-center" style={{ gap: 10 }}>
               {quest.hints.map((hint, index) => (
-                <View className="bg-info-400 rounded-lg p-2" key={index}>
+                <View className="bg-info-400 rounded-full p-2" key={index}>
                   <Text
                     key={hint.text}
-                    className="text-2xl text-accent text-center"
+                    className="text-xl text-white text-center"
                   >
                     {hint.text}
                   </Text>

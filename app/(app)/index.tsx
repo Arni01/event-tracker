@@ -20,7 +20,10 @@ export default function QuestionStart() {
         </View>
       </View> */}
 
-      <View className="w-full justify-center items-center" style={{ gap: 20 }}>
+      <View
+        className="w-full justify-center items-center pt-3"
+        style={{ gap: 20 }}
+      >
         <CustomButton
           handlePress={() => setIsOpenScanner(true)}
           title="Scan"
@@ -43,7 +46,19 @@ export default function QuestionStart() {
         onClose={() => setIsOpenScanner(false)}
         onScanned={(data) => {
           console.log('RESULT_OF_SCANNING: ', data);
+
+          if (data === 'A5_312031422') {
+            return {
+              rescan: true,
+            };
+          }
+
+          setIsOpenScanner(false);
           // nextQuestion();
+
+          // return {
+          //   rescan: true,
+          // };
         }}
       />
     </QuestFeature>
