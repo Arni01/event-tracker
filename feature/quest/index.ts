@@ -1,1 +1,1 @@
-export { QuestFeature } from './Quest';
+export { QuestFeature } from './component/QuestFeature';

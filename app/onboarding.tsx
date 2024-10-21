@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { Redirect, router, Stack } from 'expo-router';
 import { AppOnboarding } from '@/feature/appOnboarding';
-import { useGlobalContext } from '@/context/GlobalProvider';
+import { useOnboardingContext } from '@/context/onboarding';
 
 export default function OnboardingPage() {
-  const { closeOnboarding, isActiveOnboarding } = useGlobalContext();
+  const { closeOnboarding, isActiveOnboarding } = useOnboardingContext();
 
   if (!isActiveOnboarding) {
     <Redirect href="/" />;

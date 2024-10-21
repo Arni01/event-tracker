@@ -1,16 +1,16 @@
 import { createContext, PropsWithChildren, useContext, useState } from 'react';
 
-interface GlobalContextProps {
+interface OnboardingContextProps {
   isActiveOnboarding: boolean;
   closeOnboarding: () => void;
 }
-const GlobalContext = createContext<GlobalContextProps>({
+const OnboardingContext = createContext<OnboardingContextProps>({
   isActiveOnboarding: true,
   closeOnboarding: () => {},
 });
 
-export const useGlobalContext = () => {
-  const value = useContext(GlobalContext);
+export const useOnboardingContext = () => {
+  const value = useContext(OnboardingContext);
 
   if (process.env.NODE_ENV !== 'production') {
     if (!value) {
@@ -23,11 +23,11 @@ export const useGlobalContext = () => {
   return value;
 };
 
-const GlobalProvider = ({ children }: PropsWithChildren) => {
+export const OnboardingProvider = ({ children }: PropsWithChildren) => {
   const [isActiveOnboarding, setIsActiveOnboarding] = useState(false);
 
   return (
-    <GlobalContext.Provider
+    <OnboardingContext.Provider
       value={{
         isActiveOnboarding: isActiveOnboarding,
         closeOnboarding: () => {
@@ -36,8 +36,6 @@ const GlobalProvider = ({ children }: PropsWithChildren) => {
       }}
     >
       {children}
-    </GlobalContext.Provider>
+    </OnboardingContext.Provider>
   );
 };
-
-export default GlobalProvider;

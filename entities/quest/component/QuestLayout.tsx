@@ -5,12 +5,12 @@ import { FC, PropsWithChildren } from 'react';
 import { Pressable, View } from 'react-native';
 
 interface QuestLayoutProps {
-  onPressHelp: () => void;
+  onPressHint: () => void;
   containerClass?: string;
 }
 
 export const QuestLayout: FC<QuestLayoutProps & PropsWithChildren> = ({
-  onPressHelp,
+  onPressHint,
   containerClass,
   children,
 }) => {
@@ -18,10 +18,10 @@ export const QuestLayout: FC<QuestLayoutProps & PropsWithChildren> = ({
 
   return (
     <ThemedSafeAreaView
-      className={`flex-1 w-full justify-center items-center px-4 ${containerClass}`}
+      className={`flex-1 w-full h-full justify-center items-center px-4 ${containerClass}`}
     >
       <View className="absolute top-0 right-0 items-center z-10">
-        <Pressable onPress={onPressHelp} className="p-4">
+        <Pressable onPress={onPressHint} className="p-4">
           <MaterialCommunityIcons
             name="lightbulb-on-outline"
             color={accent.DEFAULT}

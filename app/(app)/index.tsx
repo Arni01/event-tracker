@@ -1,26 +1,45 @@
-import { View } from 'react-native';
-import { CustomButton } from '@/components/CustomButton';
+import { ImageURISource } from 'react-native';
 import {
   QuestionRouter,
   useQuestionNavigation,
 } from '@/hooks/useQuestionNavigation';
-import { useState } from 'react';
-import { Scanner } from '@/feature/scanner/Scanner';
+import images from '@/constants/images';
 import { QuestFeature } from '@/feature/quest';
+import { QuestType } from '@/entities/quest';
+
+const data = {
+  quest: {
+    imgUrl: images.cards as ImageURISource,
+    text: 'Test quest text here test quest text here test quest text here',
+  },
+  hints: [
+    {
+      text: 'test hint 1 rgrdhd dhdr drhehdrhdrh djhd ',
+    },
+    {
+      text: 'test hint 2',
+    },
+    {
+      text: 'test hint 3',
+    },
+    {
+      text: 'test hint 4',
+    },
+    {
+      text: 'test hint 5',
+    },
+    {
+      text: 'test hint 6',
+    },
+  ],
+};
 
 export default function QuestionStart() {
-  const [isOpenScanner, setIsOpenScanner] = useState(false);
   const nextQuestion = useQuestionNavigation(QuestionRouter.FIRST_QUESTION);
 
   return (
-    <QuestFeature>
-      {/* <View>
-        <View className="justify-between items-start flex-row mb-6">
-          <Text className="font-psemibold text-2xl text-white"></Text>
-        </View>
-      </View> */}
-
-      <View
+    <QuestFeature questType={QuestType.FIRST_QUESTION}>
+      {/* <View
         className="w-full justify-center items-center pt-3"
         style={{ gap: 20 }}
       >
@@ -28,39 +47,18 @@ export default function QuestionStart() {
           handlePress={() => setIsOpenScanner(true)}
           title="Scan"
           // containerClass="mb-4"
-        ></CustomButton>
+        ></CustomButton> */}
 
-        {/* <CustomButton
+      {/* <CustomButton
           handlePress={() => router.push('/helper')}
           title="Helper"
         ></CustomButton> */}
 
-        {/* <CustomButton
+      {/* <CustomButton
           handlePress={nextQuestion}
           title="Second question"
         ></CustomButton> */}
-      </View>
-
-      <Scanner
-        isVisible={isOpenScanner}
-        onClose={() => setIsOpenScanner(false)}
-        onScanned={(data) => {
-          console.log('RESULT_OF_SCANNING: ', data);
-
-          if (data === 'A5_312031422') {
-            return {
-              rescan: true,
-            };
-          }
-
-          setIsOpenScanner(false);
-          // nextQuestion();
-
-          // return {
-          //   rescan: true,
-          // };
-        }}
-      />
+      {/* </View> */}
     </QuestFeature>
   );
 }

@@ -1,9 +1,9 @@
 import { Slot } from 'expo-router';
 import 'react-native-reanimated';
 import { NativeWindStyleSheet } from 'nativewind';
-import GlobalProvider from '../context/GlobalProvider';
 import { useLoadMainData } from '@/hooks/useLoadMainData';
 import { useThemeColor } from '@/hooks/useThemeColor';
+import { OnboardingProvider } from '@/context/onboarding';
 
 NativeWindStyleSheet.setOutput({
   default: 'native',
@@ -18,8 +18,8 @@ export default function RootLayout() {
   }
 
   return (
-    <GlobalProvider>
+    <OnboardingProvider>
       <Slot />
-    </GlobalProvider>
+    </OnboardingProvider>
   );
 }
