@@ -4,6 +4,7 @@ import { Dispatch } from 'react';
 
 export enum QuestActionType {
   SHOW_HINT = 'SHOW_HINT',
+  PASS_QUESTION = 'PASS_QUESTION',
 }
 
 export interface QuestAction {
@@ -14,6 +15,13 @@ export interface QuestAction {
 export const showHintAction = (payload: string): QuestAction => {
   return {
     type: QuestActionType.SHOW_HINT,
+    payload,
+  };
+};
+
+export const passQuestionAction = (payload: string): QuestAction => {
+  return {
+    type: QuestActionType.PASS_QUESTION,
     payload,
   };
 };

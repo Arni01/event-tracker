@@ -1,19 +1,15 @@
 import { Redirect, Stack } from 'expo-router';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { useOnboardingContext } from '@/context/onboarding';
-import { useEffect } from 'react';
 import { QuestProvider } from '@/entities/quest';
 
-export default function RootLayout() {
-  const { isActiveOnboarding } = useOnboardingContext();
-  // const {} = useQu;
+export default function QuestLayout() {
+  // const { isActiveOnboarding } = useOnboardingContext();
   const { primary, white } = useThemeColor();
 
-  // useEffect(() => {}, []);
-
-  if (isActiveOnboarding) {
-    return <Redirect href="/onboarding" />;
-  }
+  // if (isActiveOnboarding) {
+  //   return <Redirect href="/onboarding" />;
+  // }
 
   return (
     <QuestProvider>
@@ -31,10 +27,12 @@ export default function RootLayout() {
         }}
       >
         <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="second_question" options={{ headerShown: false }} />
+        <Stack.Screen name="question" options={{ headerShown: false }} />
+        <Stack.Screen name="success" options={{ headerShown: false }} />
+        {/* <Stack.Screen name="second_question" options={{ headerShown: false }} />
         <Stack.Screen name="third_question" options={{ headerShown: false }} />
         <Stack.Screen name="fourth_question" options={{ headerShown: false }} />
-        <Stack.Screen name="final_question" options={{ headerShown: false }} />
+        <Stack.Screen name="final_question" options={{ headerShown: false }} /> */}
       </Stack>
     </QuestProvider>
   );

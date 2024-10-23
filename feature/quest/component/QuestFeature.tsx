@@ -1,18 +1,15 @@
-import { FC, useState } from 'react';
-import { QuestComponent, QuestLayout, QuestType } from '@/entities/quest';
-import { Scanner } from '@/shared/component';
-import { View } from 'react-native';
-import { CustomButton } from '@/shared/component/CustomButton';
+import { FC } from 'react';
+import { QuestComponent, QuestLayout } from '@/entities/quest';
 import { useQuestViewData } from '../model/useQuestViewData';
 import { HintFeature } from './hint/HintFeature';
+import { QuestScanner } from './QuestScanner';
 
 interface QuestFeatureProps {
-  questType: QuestType;
+  onSuccess: () => void;
 }
 
-export const QuestFeature: FC<QuestFeatureProps> = ({ questType }) => {
-  const [isOpenScanner, setIsOpenScanner] = useState(false);
-  const { data, hasHint, showHint } = useQuestViewData(questType);
+export const QuestFeature: FC<QuestFeatureProps> = ({ onSuccess }) => {
+  const { data, hasHint, showHint, passQuestion } = useQuestViewData();
 
   return (
     <QuestLayout containerClass="pb-[20px]">
@@ -20,10 +17,17 @@ export const QuestFeature: FC<QuestFeatureProps> = ({ questType }) => {
 
       <HintFeature showHint={hasHint} onSuccess={showHint} />
 
-      <View className="w-full justify-center items-center pt-3">
-        <CustomButton handlePress={() => setIsOpenScanner(true)} title="Scan" />
-      </View>
-      <Scanner
+      <QuestScanner
+        onScanned={(data) => {
+          return data === 'A5_312031422';
+        }}
+      />
+
+      {/* <View className="w-full justify-center items-center pt-3">
+        <CustomButton handlePress={handleSuccess} title="Scan" /> */}
+      {/* <CustomButton handlePress={() => setIsOpenScanner(true)} title="Scan" /> */}
+      {/* </View> */}
+      {/* <Scanner
         isVisible={isOpenScanner}
         onClose={() => setIsOpenScanner(false)}
         onScanned={(data) => {
@@ -42,7 +46,12 @@ export const QuestFeature: FC<QuestFeatureProps> = ({ questType }) => {
           //   rescan: true,
           // };
         }}
-      />
+      /> */}
     </QuestLayout>
   );
+
+  function handleSuccess() {
+    passQuestion();
+    onSuccess();
+  }
 };

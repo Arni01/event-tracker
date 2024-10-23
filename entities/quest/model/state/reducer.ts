@@ -31,14 +31,21 @@ export const questReducer = (
       return {
         ...state,
         data: state.data.map((item) => {
-          if (item.id === action.payload) {
-            return {
-              ...item,
-              hints: showOneOfHints(item.hints),
-            };
-          }
-
-          return item;
+          return item.id === action.payload
+            ? {
+                ...item,
+                hints: showOneOfHints(item.hints),
+              }
+            : item;
+        }),
+      };
+    case QuestActionType.PASS_QUESTION:
+      return {
+        ...state,
+        data: state.data.map((item) => {
+          return item.id === action.payload
+            ? { ...item, isPassed: true }
+            : item;
         }),
       };
     default:

@@ -17,9 +17,28 @@ export const DefaultQuestStore: QuestModel[] = [
     ],
     quest: {
       imgUrl: images.cards as ImageURISource,
-      text: 'Test quest text here',
+      text: 'Test quest text here 1',
     },
-    answer: 'TEST',
+    answer: 'TEST 1',
+    isPassed: false,
+  },
+  {
+    id: QuestId.SECOND_QUESTION,
+    hints: [
+      {
+        text: 'test hint 1',
+        isVisible: false,
+      },
+      {
+        text: 'test hint 2',
+        isVisible: false,
+      },
+    ],
+    quest: {
+      imgUrl: images.thumbnail as ImageURISource,
+      text: 'Test quest text here 2',
+    },
+    answer: 'TEST 2',
     isPassed: false,
   },
 ];

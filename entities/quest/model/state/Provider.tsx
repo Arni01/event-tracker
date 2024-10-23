@@ -7,7 +7,7 @@ import {
 } from 'react';
 import { initialState, questReducer } from './reducer';
 import { QuestStateModel } from './stateModel';
-import { loadQuestState, QuestActionType, showHintAction } from './actions';
+import { loadQuestState, passQuestionAction, showHintAction } from './actions';
 import { QuestId } from '../questModel';
 
 const Context = createContext<QuestStateModel | null>(null);
@@ -36,11 +36,14 @@ export const QuestProvider = ({ children }: PropsWithChildren) => {
   }
 
   const value: QuestStateModel = {
-    getItem: (id: QuestId) => {
-      return state.data.find((item) => item.id === id);
+    getAvailableQuest: () => {
+      return state.data.find((item) => !item.isPassed);
     },
     showHint: (id: QuestId) => {
       dispatch(showHintAction(id));
+    },
+    passQuestion: (id: QuestId) => {
+      dispatch(passQuestionAction(id));
     },
   };
 
