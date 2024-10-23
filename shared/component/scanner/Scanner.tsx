@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { ModalComponent } from '@/components/modal/Modal';
-import { usePermissions } from '@/hooks/usePermissions';
+import { usePermissions } from './usePermissions';
+import { ModalComponent } from '../Modal';
 import { CameraProps, CameraWrapper } from './CameraWrapper';
 
 interface ScannerProps extends CameraProps {

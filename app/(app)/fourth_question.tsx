@@ -4,7 +4,7 @@ import {
   QuestionRouter,
   useQuestionNavigation,
 } from '@/hooks/useQuestionNavigation';
-import { CustomButton } from '@/components/CustomButton';
+import { CustomButton } from '@/shared/component';
 
 const FourthQuestionScreen = () => {
   const nextQuestion = useQuestionNavigation(QuestionRouter.FOURTH_QUESTION);

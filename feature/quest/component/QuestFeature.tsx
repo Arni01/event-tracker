@@ -2,8 +2,9 @@ import { FC, useState } from 'react';
 import { QuestComponent, QuestLayout, QuestType } from '@/entities/quest';
 import { Scanner } from '@/shared/component';
 import { View } from 'react-native';
-import { CustomButton } from '@/components/CustomButton';
-import { useGetQuest } from '../model/useGetQuest';
+import { CustomButton } from '@/shared/component/CustomButton';
+import { useQuestViewData } from '../model/useQuestViewData';
+import { HintFeature } from './hint/HintFeature';
 
 interface QuestFeatureProps {
   questType: QuestType;
@@ -11,11 +12,13 @@ interface QuestFeatureProps {
 
 export const QuestFeature: FC<QuestFeatureProps> = ({ questType }) => {
   const [isOpenScanner, setIsOpenScanner] = useState(false);
-  const data = useGetQuest(questType);
+  const { data, hasHint, showHint } = useQuestViewData(questType);
 
   return (
-    <QuestLayout onPressHint={() => {}} containerClass="pb-[20px]">
+    <QuestLayout containerClass="pb-[20px]">
       {data && <QuestComponent hints={data.hints} quest={data.quest} />}
+
+      <HintFeature showHint={hasHint} onSuccess={showHint} />
 
       <View className="w-full justify-center items-center pt-3">
         <CustomButton handlePress={() => setIsOpenScanner(true)} title="Scan" />

@@ -8,8 +8,15 @@ export enum QuestActionType {
 
 export interface QuestAction {
   type: QuestActionType;
-  payload?: unknown;
+  payload: string;
 }
+
+export const showHintAction = (payload: string): QuestAction => {
+  return {
+    type: QuestActionType.SHOW_HINT,
+    payload,
+  };
+};
 
 export enum StateActionType {
   INIT_STORE = 'INIT_STORE',

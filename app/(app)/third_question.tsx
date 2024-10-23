@@ -1,6 +1,6 @@
 import { View, Text } from 'react-native';
 import React from 'react';
-import { CustomButton } from '@/components/CustomButton';
+import { CustomButton } from '@/shared/component/CustomButton';
 import {
   QuestionRouter,
   useQuestionNavigation,

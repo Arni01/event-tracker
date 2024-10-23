@@ -10,7 +10,7 @@ export interface QuestContentModel {
   imgUrl: ImageURISource;
 }
 
-export enum QuestType {
+export enum QuestId {
   FIRST_QUESTION = 'FIRST_QUESTION',
   SECOND_QUESTION = 'SECOND_QUESTION',
   THIRD_QUESTION = 'THIRD_QUESTION',
@@ -19,8 +19,9 @@ export enum QuestType {
 }
 
 export interface QuestModel {
-  id: QuestType;
+  id: QuestId;
   quest: QuestContentModel;
   hints: QuestHintModel[];
+  answer: string;
   isPassed: boolean;
 }

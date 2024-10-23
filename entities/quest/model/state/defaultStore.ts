@@ -1,14 +1,14 @@
 import images from '@/constants/images';
-import { QuestModel, QuestType } from '../questModel';
+import { QuestModel, QuestId } from '../questModel';
 import { ImageURISource } from 'react-native';
 
 export const DefaultQuestStore: QuestModel[] = [
   {
-    id: QuestType.FIRST_QUESTION,
+    id: QuestId.FIRST_QUESTION,
     hints: [
       {
         text: 'test hint 1',
-        isVisible: true,
+        isVisible: false,
       },
       {
         text: 'test hint 2',
@@ -19,6 +19,7 @@ export const DefaultQuestStore: QuestModel[] = [
       imgUrl: images.cards as ImageURISource,
       text: 'Test quest text here',
     },
+    answer: 'TEST',
     isPassed: false,
   },
 ];

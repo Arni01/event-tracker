@@ -4,7 +4,7 @@ import {
   StateAction,
   StateActionType,
 } from './actions';
-import { QuestModel } from '../questModel';
+import { QuestHintModel, QuestModel } from '../questModel';
 
 interface State {
   isInit: boolean;
@@ -30,8 +30,31 @@ export const questReducer = (
     case QuestActionType.SHOW_HINT:
       return {
         ...state,
+        data: state.data.map((item) => {
+          if (item.id === action.payload) {
+            return {
+              ...item,
+              hints: showOneOfHints(item.hints),
+            };
+          }
+
+          return item;
+        }),
       };
     default:
       return { ...state };
   }
 };
+
+function showOneOfHints(hints: Array<QuestHintModel>) {
+  const result = [...hints];
+
+  for (let hint of result) {
+    if (!hint.isVisible) {
+      hint.isVisible = true;
+      break;
+    }
+  }
+
+  return result;
+}

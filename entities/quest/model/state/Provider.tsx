@@ -7,8 +7,8 @@ import {
 } from 'react';
 import { initialState, questReducer } from './reducer';
 import { QuestStateModel } from './stateModel';
-import { loadQuestState } from './actions';
-import { QuestType } from '../questModel';
+import { loadQuestState, QuestActionType, showHintAction } from './actions';
+import { QuestId } from '../questModel';
 
 const Context = createContext<QuestStateModel | null>(null);
 
@@ -36,8 +36,11 @@ export const QuestProvider = ({ children }: PropsWithChildren) => {
   }
 
   const value: QuestStateModel = {
-    getItem: (id: QuestType) => {
+    getItem: (id: QuestId) => {
       return state.data.find((item) => item.id === id);
+    },
+    showHint: (id: QuestId) => {
+      dispatch(showHintAction(id));
     },
   };
 

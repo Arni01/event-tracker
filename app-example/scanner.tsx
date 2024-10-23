@@ -15,12 +15,12 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { Overlay } from '@/components/Overlay';
 import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
-import { CustomButton } from '@/components/CustomButton';
+import { CustomButton } from '@/shared/component/CustomButton';
 import Animated, {
   useAnimatedStyle,
   withTiming,
 } from 'react-native-reanimated';
-import { ModalComponent } from '@/components/modal/Modal';
+import { ModalComponent } from '@/shared/component/Modal';
 
 interface BarcodeScanningResult {
   boundingBox: BarcodeBounds;

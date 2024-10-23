@@ -1,38 +1,9 @@
-import { ImageURISource } from 'react-native';
 import {
   QuestionRouter,
   useQuestionNavigation,
 } from '@/hooks/useQuestionNavigation';
-import images from '@/constants/images';
 import { QuestFeature } from '@/feature/quest';
 import { QuestType } from '@/entities/quest';
-
-const data = {
-  quest: {
-    imgUrl: images.cards as ImageURISource,
-    text: 'Test quest text here test quest text here test quest text here',
-  },
-  hints: [
-    {
-      text: 'test hint 1 rgrdhd dhdr drhehdrhdrh djhd ',
-    },
-    {
-      text: 'test hint 2',
-    },
-    {
-      text: 'test hint 3',
-    },
-    {
-      text: 'test hint 4',
-    },
-    {
-      text: 'test hint 5',
-    },
-    {
-      text: 'test hint 6',
-    },
-  ],
-};
 
 export default function QuestionStart() {
   const nextQuestion = useQuestionNavigation(QuestionRouter.FIRST_QUESTION);
