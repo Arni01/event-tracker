@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { Link } from 'expo-router';
-import { ThemedText } from '@/components/ThemedText';
-import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
+import { ThemedText } from '@/shared/component/ThemedText';
+import { ThemedSafeAreaView } from '@/shared/component/ThemedSafeAreaView';
 
 export default function Home() {
   return (

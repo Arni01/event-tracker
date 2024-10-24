@@ -1,4 +1,4 @@
-import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
+import { ThemedSafeAreaView } from '@/shared/component/ThemedSafeAreaView';
 import { Stack } from 'expo-router';
 import { StyleSheet, Text } from 'react-native';
 

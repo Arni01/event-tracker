@@ -14,7 +14,7 @@ import {
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import { Overlay } from '@/components/Overlay';
-import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
+import { ThemedSafeAreaView } from '@/shared/component/ThemedSafeAreaView';
 import { CustomButton } from '@/shared/component/CustomButton';
 import Animated, {
   useAnimatedStyle,

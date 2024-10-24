@@ -1,4 +1,4 @@
-import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
+import { ThemedSafeAreaView } from '@/shared/component';
 import { FC, PropsWithChildren } from 'react';
 
 interface QuestLayoutProps {

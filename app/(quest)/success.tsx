@@ -1,5 +1,4 @@
-import { ThemedSafeAreaView } from '@/components/ThemedSafeAreaView';
-import { CustomButton } from '@/shared/component';
+import { CustomButton, ThemedSafeAreaView } from '@/shared/component';
 import { useRouter } from 'expo-router';
 import { View } from 'react-native';
 

@@ -3,8 +3,6 @@ import {
   type SafeAreaViewProps,
 } from 'react-native-safe-area-context';
 
-export type ThemedSafeAreaViewProps = SafeAreaViewProps;
-
 export function ThemedSafeAreaView({
   className,
   ...otherProps
