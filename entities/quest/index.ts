@@ -4,6 +4,6 @@ export {
   QuestHintModel,
   QuestContentModel,
   QuestModel,
-  QuestId as QuestType,
+  QuestId,
 } from './model/questModel';
 export { QuestProvider, useQuestState } from './model/state/Provider';

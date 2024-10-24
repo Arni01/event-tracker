@@ -7,13 +7,13 @@ import Animated, {
   useAnimatedStyle,
 } from 'react-native-reanimated';
 
-type Props = {
+interface ListItemProps {
   item: { text: string; image: ImageURISource };
   index: number;
   x: SharedValue<number>;
-};
+}
 
-const ListItemComponent = ({ item, index, x }: Props) => {
+const ListItemComponent = ({ item, index, x }: ListItemProps) => {
   const { width: SCREEN_WIDTH } = useWindowDimensions();
   const rnImageStyle = useAnimatedStyle(() => {
     const translateY = interpolate(

@@ -1,4 +1,4 @@
-import { View, ViewToken } from 'react-native';
+import { ImageURISource, View, ViewToken } from 'react-native';
 import Animated, {
   runOnJS,
   useAnimatedRef,
@@ -8,19 +8,24 @@ import Animated, {
 } from 'react-native-reanimated';
 import { FC, useCallback } from 'react';
 import { ListItem } from './ListItem';
-import { DataModelComponent } from './DataModel';
 import { PaginationElement } from './PaginationComponent';
 import { OnboardingButton } from './Button';
 
+interface ItemModel {
+  id: string;
+  text: string;
+  image: ImageURISource;
+}
+
 interface OnboardingProps {
-  data: DataModelComponent[];
+  data: ItemModel[];
   onPress: () => void;
 }
 
-export const OnboardingComponent: FC<OnboardingProps> = ({ data, onPress }) => {
+export const OnboardingList: FC<OnboardingProps> = ({ data, onPress }) => {
   const xPosition = useSharedValue(0);
   const flatListIndex = useSharedValue(0);
-  const flatListRef = useAnimatedRef<Animated.FlatList<DataModelComponent>>();
+  const flatListRef = useAnimatedRef<Animated.FlatList<ItemModel>>();
 
   const onViewableItemsChanged = useCallback(
     ({ viewableItems }: { viewableItems: ViewToken[] }) => {
@@ -36,7 +41,7 @@ export const OnboardingComponent: FC<OnboardingProps> = ({ data, onPress }) => {
   });
 
   const renderItem = useCallback(
-    ({ item, index }: { item: DataModelComponent; index: number }) => {
+    ({ item, index }: { item: ItemModel; index: number }) => {
       return <ListItem item={item} index={index} x={xPosition} />;
     },
     [xPosition]

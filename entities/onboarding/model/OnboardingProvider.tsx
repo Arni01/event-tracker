@@ -1,37 +1,32 @@
 import { createContext, PropsWithChildren, useContext, useState } from 'react';
 
 interface OnboardingContextProps {
-  isActiveOnboarding: boolean;
+  isPassedOnboarding: boolean;
   closeOnboarding: () => void;
 }
-const OnboardingContext = createContext<OnboardingContextProps>({
-  isActiveOnboarding: true,
-  closeOnboarding: () => {},
-});
+const OnboardingContext = createContext<OnboardingContextProps | null>(null);
 
 export const useOnboardingContext = () => {
   const value = useContext(OnboardingContext);
 
-  if (process.env.NODE_ENV !== 'production') {
-    if (!value) {
-      throw new Error(
-        'useGlobalContext must be wrapped in a <GlobalProvider />'
-      );
-    }
+  if (!value) {
+    throw new Error(
+      'useOnboardingContext must be wrapped in a <OnboardingProvider />'
+    );
   }
 
   return value;
 };
 
 export const OnboardingProvider = ({ children }: PropsWithChildren) => {
-  const [isActiveOnboarding, setIsActiveOnboarding] = useState(false);
+  const [isPassedOnboarding, setIsActiveOnboarding] = useState(false);
 
   return (
     <OnboardingContext.Provider
       value={{
-        isActiveOnboarding: isActiveOnboarding,
+        isPassedOnboarding,
         closeOnboarding: () => {
-          setIsActiveOnboarding(false);
+          setIsActiveOnboarding(true);
         },
       }}
     >

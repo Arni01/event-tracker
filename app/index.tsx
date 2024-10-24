@@ -1,12 +1,12 @@
-import { useOnboardingContext } from '@/context/onboarding';
+import { useOnboardingContext } from '@/entities/onboarding';
 import { Redirect } from 'expo-router';
 
-export default function Home() {
-  const { isActiveOnboarding } = useOnboardingContext();
+export default function HomePage() {
+  const { isPassedOnboarding } = useOnboardingContext();
 
-  if (isActiveOnboarding) {
-    return <Redirect href="/onboarding" />;
+  if (isPassedOnboarding) {
+    return <Redirect href="/(quest)/question" />;
   }
 
-  return <Redirect href="/(quest)/question" />;
+  return <Redirect href="/onboarding" />;
 }

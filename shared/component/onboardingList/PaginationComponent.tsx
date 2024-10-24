@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, useWindowDimensions } from 'react-native';
+import { View, useWindowDimensions } from 'react-native';
 import React, { useCallback } from 'react';
 import Animated, {
   Extrapolation,
@@ -9,12 +9,12 @@ import Animated, {
 } from 'react-native-reanimated';
 import { useThemeColor } from '@/hooks/useThemeColor';
 
-type Props = {
+interface PaginationElementProps {
   length: number;
   x: SharedValue<number>;
-};
+}
 
-export const PaginationElement = ({ length, x }: Props) => {
+export const PaginationElement = ({ length, x }: PaginationElementProps) => {
   const { width: SCREEN_WIDTH } = useWindowDimensions();
   const { accent, white } = useThemeColor();
 

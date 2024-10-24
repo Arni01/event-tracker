@@ -1,1 +1,0 @@
-export { OnboardingComponent } from './Onboarding';

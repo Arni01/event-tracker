@@ -1,6 +1,5 @@
 import { Pressable } from 'react-native';
 import Animated, {
-  runOnJS,
   SharedValue,
   useAnimatedStyle,
   withSpring,
@@ -10,10 +9,10 @@ import { Ionicons } from '@expo/vector-icons';
 import { useThemeColor } from '@/hooks/useThemeColor';
 import { FC } from 'react';
 
-type OnboardingButtonProps = {
+interface OnboardingButtonProps {
   isLast: SharedValue<boolean>;
   onPress: VoidFunction;
-};
+}
 
 export const OnboardingButton: FC<OnboardingButtonProps> = ({
   onPress,

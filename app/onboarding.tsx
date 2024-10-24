@@ -1,18 +1,14 @@
 import { StatusBar } from 'expo-status-bar';
-import { Redirect, router, Stack } from 'expo-router';
-import { AppOnboarding } from '@/feature/appOnboarding';
-import { useOnboardingContext } from '@/context/onboarding';
+import { router, Stack } from 'expo-router';
+import { WelcomeOnboarding } from '@/feature/onboarding';
+import { useOnboardingContext } from '@/entities/onboarding';
 
 export default function OnboardingPage() {
-  const { closeOnboarding, isActiveOnboarding } = useOnboardingContext();
-
-  if (!isActiveOnboarding) {
-    <Redirect href="/" />;
-  }
+  const { closeOnboarding } = useOnboardingContext();
 
   const handlePress = () => {
     closeOnboarding();
-    router.replace('/');
+    router.replace('/(quest)/question');
   };
 
   return (
@@ -24,7 +20,7 @@ export default function OnboardingPage() {
       />
       {/* <StatusBar backgroundColor={primary} style="light" /> */}
       <StatusBar hidden={true} />
-      <AppOnboarding onPress={handlePress} />
+      <WelcomeOnboarding onPress={handlePress} />
 
       {/* <ScrollView
         contentContainerStyle={{

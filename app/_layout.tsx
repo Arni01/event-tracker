@@ -1,9 +1,9 @@
-import { Slot } from 'expo-router';
+import { Stack } from 'expo-router';
 import 'react-native-reanimated';
 import { NativeWindStyleSheet } from 'nativewind';
 import { useLoadMainData } from '@/hooks/useLoadMainData';
 import { useThemeColor } from '@/hooks/useThemeColor';
-import { OnboardingProvider } from '@/context/onboarding';
+import { OnboardingProvider } from '@/entities/onboarding';
 
 NativeWindStyleSheet.setOutput({
   default: 'native',
@@ -11,7 +11,7 @@ NativeWindStyleSheet.setOutput({
 
 export default function RootLayout() {
   const isLoaded = useLoadMainData();
-  useThemeColor();
+  const { primary, white } = useThemeColor();
 
   if (!isLoaded) {
     return null;
@@ -19,7 +19,22 @@ export default function RootLayout() {
 
   return (
     <OnboardingProvider>
-      <Slot />
+      <Stack
+        screenOptions={{
+          contentStyle: {
+            backgroundColor: primary.DEFAULT,
+          },
+          headerStyle: {
+            backgroundColor: primary.DEFAULT,
+          },
+          headerTintColor: white.DEFAULT,
+          animation: 'slide_from_right',
+        }}
+      >
+        <Stack.Screen name="index" options={{ headerShown: false }} />
+        <Stack.Screen name="onboarding" options={{ headerShown: false }} />
+        <Stack.Screen name="(quest)" options={{ headerShown: false }} />
+      </Stack>
     </OnboardingProvider>
   );
 }
