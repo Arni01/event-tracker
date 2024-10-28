@@ -3,9 +3,9 @@ import { HintModel, HintType } from './HintModel';
 export const DefaultHintStore: HintModel[] = [
   {
     id: '1',
-    question: {
-      content: 'image',
-      text: 'What is the meaning of life?',
+    content: {
+      media: 'image',
+      questionText: 'What is the meaning of life?',
     },
     answer: {
       type: HintType.CHOICE_ANSWER,
@@ -15,9 +15,9 @@ export const DefaultHintStore: HintModel[] = [
   },
   {
     id: '2',
-    question: {
-      content: 'image',
-      text: 'Question 2',
+    content: {
+      media: 'image',
+      questionText: 'Question 2',
     },
     answer: {
       type: HintType.CHOICE_ANSWER,
@@ -27,9 +27,9 @@ export const DefaultHintStore: HintModel[] = [
   },
   {
     id: '3',
-    question: {
-      content: 'image',
-      text: 'Question 3',
+    content: {
+      media: 'image',
+      questionText: 'Question 3',
     },
     answer: {
       type: HintType.CHOICE_ANSWER,
@@ -39,9 +39,9 @@ export const DefaultHintStore: HintModel[] = [
   },
   {
     id: '4',
-    question: {
-      content: 'image',
-      text: 'Question 4',
+    content: {
+      media: 'image',
+      questionText: 'Question 4',
     },
     answer: {
       type: HintType.CHOICE_ANSWER,
@@ -51,9 +51,9 @@ export const DefaultHintStore: HintModel[] = [
   },
   {
     id: '5',
-    question: {
-      content: 'image',
-      text: 'Question 5',
+    content: {
+      media: 'image',
+      questionText: 'Question 5',
     },
     answer: {
       type: HintType.CHOICE_ANSWER,
@@ -63,9 +63,9 @@ export const DefaultHintStore: HintModel[] = [
   },
   {
     id: '6',
-    question: {
-      content: 'image',
-      text: 'Question 6',
+    content: {
+      media: 'image',
+      questionText: 'Question 6',
     },
     answer: {
       type: HintType.CHOICE_ANSWER,
@@ -75,9 +75,9 @@ export const DefaultHintStore: HintModel[] = [
   },
   {
     id: '7',
-    question: {
-      content: 'image',
-      text: 'Question 7',
+    content: {
+      media: 'image',
+      questionText: 'Question 7',
     },
     answer: {
       type: HintType.CHOICE_ANSWER,

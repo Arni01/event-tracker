@@ -15,14 +15,14 @@ type ChoiceAnswerModel = {
 
 type TypeAnswerModel = {
   type: HintType.TYPE_ANSWER;
-  answer: string;
+  correctType: string;
 };
 
 export interface HintModel {
   id: string;
-  question: {
-    content: Video | Audio | Image;
-    text: string;
+  content: {
+    media: Video | Audio | Image;
+    questionText: string;
   };
   answer: TypeAnswerModel | ChoiceAnswerModel;
 }

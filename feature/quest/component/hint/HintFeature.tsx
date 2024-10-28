@@ -3,18 +3,22 @@ import { ModalComponent } from '@/shared/component';
 import { HintList } from './HintList';
 import { HintButton } from './HintButton';
 import { Text, View } from 'react-native';
+import { useHintStore } from '@/feature/quest/model/hint/useHintStore';
 
 interface HintFeatureProps {
-  showHint: boolean;
+  hasHint: boolean;
   onSuccess: () => void;
 }
 
-export function HintFeature({ showHint, onSuccess }: HintFeatureProps) {
+export function HintFeature({ hasHint, onSuccess }: HintFeatureProps) {
   const [isOpenModal, setIsOpenModal] = useState(false);
+  const data = useHintStore((state) => state.data);
+  const moveHintToEnd = useHintStore((state) => state.moveHintToEnd);
+  const passHint = useHintStore((state) => state.passHint);
 
   return (
     <>
-      {showHint && <HintButton onPress={onOpen} />}
+      {hasHint && <HintButton onPress={onOpen} />}
 
       <ModalComponent isVisible={isOpenModal} onClose={onClose}>
         <View
@@ -22,7 +26,11 @@ export function HintFeature({ showHint, onSuccess }: HintFeatureProps) {
           style={{ gap: 12 }}
         >
           <Text className="text-white text-2xl">Hints</Text>
-          <HintList onSuccess={handleSuccess} />
+          <HintList
+            data={data}
+            onSuccess={handleSuccess}
+            onError={handleError}
+          />
         </View>
       </ModalComponent>
     </>
@@ -36,8 +44,15 @@ export function HintFeature({ showHint, onSuccess }: HintFeatureProps) {
     setIsOpenModal(false);
   }
 
-  function handleSuccess() {
+  function handleSuccess(itemId: string) {
     onClose();
+
+    passHint(itemId);
+
     onSuccess();
+  }
+
+  function handleError(itemId: string) {
+    moveHintToEnd(itemId);
   }
 }

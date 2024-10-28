@@ -15,7 +15,7 @@ export const QuestFeature: FC<QuestFeatureProps> = ({ onSuccess }) => {
     <QuestLayout containerClass="pb-[20px]">
       {data && <QuestComponent hints={data.hints} quest={data.quest} />}
 
-      <HintFeature showHint={hasHint} onSuccess={showHint} />
+      <HintFeature hasHint={hasHint} onSuccess={showHint} />
 
       <QuestScanner
         onScanned={(result) => {

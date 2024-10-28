@@ -75,19 +75,19 @@ export default function Scanner() {
     // style={StyleSheet.absoluteFillObject}
     >
       <CustomButton
-        handlePress={() => setIsVisible(true)}
+        onPress={() => setIsVisible(true)}
         title="Open modal"
         containerClass="w-full mt-4"
         textStyles="text-white"
       ></CustomButton>
       <CustomButton
-        handlePress={() => router.back()}
+        onPress={() => router.back()}
         title="Back"
         containerClass="w-full mt-4"
         textStyles="text-white"
       ></CustomButton>
       <CustomButton
-        handlePress={() => router.back()}
+        onPress={() => router.back()}
         title="Back"
         containerClass="w-full mt-4"
         textStyles="text-white"

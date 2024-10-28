@@ -22,7 +22,7 @@ export const QuestScanner: FC<QuestScannerProps> = ({ onScanned }) => {
   return (
     <>
       <View className="w-full justify-center items-center pt-3">
-        <CustomButton handlePress={handleOpen} title="Scan" />
+        <CustomButton onPress={handleOpen} title="Scan" />
       </View>
       <Scanner
         isVisible={isOpenScanner}

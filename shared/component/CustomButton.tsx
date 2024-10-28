@@ -3,7 +3,7 @@ import { ActivityIndicator, Pressable, Text } from 'react-native';
 
 interface CustomButtonProps {
   title: string;
-  handlePress: () => void;
+  onPress: () => void;
   containerClass?: string;
   textStyles?: string;
   loading?: boolean;
@@ -12,7 +12,7 @@ interface CustomButtonProps {
 
 export const CustomButton: FC<CustomButtonProps> = ({
   title,
-  handlePress,
+  onPress,
   containerClass,
   textStyles,
   loading,
@@ -20,7 +20,7 @@ export const CustomButton: FC<CustomButtonProps> = ({
 }) => {
   return (
     <Pressable
-      onPress={() => handlePress()}
+      onPress={() => onPress()}
       className={`bg-accent rounded-xl min-h-[62px] basis-[62px] flex-shrink-0 w-full flex-row justify-center items-center ${containerClass} ${
         loading ? 'opacity-50' : ''
       }`}

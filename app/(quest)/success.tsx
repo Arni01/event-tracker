@@ -12,7 +12,7 @@ export default function Success() {
         style={{ gap: 20 }}
       >
         <CustomButton
-          handlePress={() => router.replace('/(quest)/question')}
+          onPress={() => router.replace('/(quest)/question')}
           title="Success"
           // containerClass="mb-4"
         ></CustomButton>
