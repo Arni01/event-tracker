@@ -1,13 +1,27 @@
-import { Text } from 'react-native';
+import { Text, View } from 'react-native';
 
 type Video = 'video';
 type Audio = 'audio';
 type Image = 'image';
 
 interface HintItemMediaProps {
-  data: Video | Audio | Image;
+  media: Video | Audio | Image;
+  questionText?: string;
 }
 
-export function HintItemMedia({ data }: HintItemMediaProps) {
-  return <Text>{data}</Text>;
+export function HintItemMedia({ media, questionText }: HintItemMediaProps) {
+  return (
+    <View
+      className="h-full w-full justify-start items-center"
+      style={{ gap: 12 }}
+    >
+      {questionText && (
+        <Text className="text-accent text-2xl font-semibold">
+          {questionText}
+        </Text>
+      )}
+
+      <Text>{media}</Text>
+    </View>
+  );
 }

@@ -7,22 +7,19 @@ type Video = 'video';
 type Audio = 'audio';
 type Image = 'image';
 
-type ChoiceAnswerModel = {
+interface ChoiceAnswerModel {
   type: HintType.CHOICE_ANSWER;
   options: string[];
-  correctOption: string;
-};
-
-type TypeAnswerModel = {
-  type: HintType.TYPE_ANSWER;
-  correctType: string;
-};
-
-export interface HintModel {
-  id: string;
-  content: {
-    media: Video | Audio | Image;
-    questionText: string;
-  };
-  answer: TypeAnswerModel | ChoiceAnswerModel;
+  answer: string;
 }
+
+interface TypeAnswerModel {
+  type: HintType.TYPE_ANSWER;
+  answer: string;
+}
+
+export type HintModel = {
+  id: string;
+  media: Video | Audio | Image;
+  questionText?: string;
+} & (ChoiceAnswerModel | TypeAnswerModel);

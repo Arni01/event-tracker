@@ -1,7 +1,7 @@
-import { Text, View } from 'react-native';
-import { HintModel, HintType } from '@/feature/quest/model/hint/HintModel';
+import { View } from 'react-native';
 import { HintItemMedia } from './HintItemMedia';
-import { HintItemSelect } from '@/feature/quest/component/hint/HintItemSelect';
+import { HintItemSelect } from './HintItemSelect';
+import { HintModel, HintType } from '../../model/hint/hintModel';
 
 interface HintItemProps {
   item: HintModel;
@@ -19,16 +19,13 @@ export function HintItem({ onSuccess, item, onError }: HintItemProps) {
         style={{ gap: 20 }}
       >
         <View className="flex-1 justify-center">
-          <HintItemMedia data={item.content.media} />
-          <Text className="text-white text-2xl">
-            {item.content.questionText}
-          </Text>
+          <HintItemMedia media={item.media} questionText={getQuestionText()} />
         </View>
 
-        {item.answer.type === HintType.CHOICE_ANSWER && (
+        {item.type === HintType.CHOICE_ANSWER && (
           <HintItemSelect
-            options={item.answer.options}
-            answer={item.answer.correctOption}
+            options={item.options}
+            answer={item.answer}
             onSelect={handleSelect}
           />
         )}
@@ -38,5 +35,19 @@ export function HintItem({ onSuccess, item, onError }: HintItemProps) {
 
   function handleSelect(result: boolean) {
     return result ? onSuccess() : onError();
+  }
+
+  function getQuestionText() {
+    if (item.questionText) {
+      return item.questionText;
+    }
+
+    if (item.type === HintType.CHOICE_ANSWER) {
+      return 'Choose the correct answer';
+    }
+
+    if (item.type === HintType.TYPE_ANSWER) {
+      return 'Type the answer';
+    }
   }
 }

@@ -1,8 +1,8 @@
 import { useWindowDimensions, ViewToken } from 'react-native';
 import Animated, { SlideInRight, SlideOutLeft } from 'react-native-reanimated';
 import { useCallback, useState } from 'react';
+import { HintModel } from '../../model/hint/hintModel';
 import { HintItem } from './HintItem';
-import { HintModel } from '@/feature/quest/model/hint/HintModel';
 
 interface HintListProps {
   onSuccess: (itemId: string) => void;

@@ -55,7 +55,7 @@ export function HintItemSelect({
   }
 
   function getButtonClass(itemIndex: number): string {
-    const defaultClass = 'rounded-full';
+    const defaultClass = 'rounded-full min-h-[48px] basis-[48px]';
 
     let result = defaultClass;
 

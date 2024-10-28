@@ -1,6 +1,6 @@
 import { create } from 'zustand';
 import { DefaultHintStore } from './defaultHintStore';
-import { HintModel } from './HintModel';
+import { HintModel } from './hintModel';
 
 interface HintInitialStoreModel {
   data: HintModel[];
