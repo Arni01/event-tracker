@@ -19,7 +19,7 @@ export const useOnboardingContext = () => {
 };
 
 export const OnboardingProvider = ({ children }: PropsWithChildren) => {
-  const [isPassedOnboarding, setIsActiveOnboarding] = useState(false);
+  const [isPassedOnboarding, setIsActiveOnboarding] = useState(true);
 
   return (
     <OnboardingContext.Provider

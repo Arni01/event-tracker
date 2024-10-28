@@ -1,4 +1,5 @@
 import {
+  Modal,
   Pressable,
   StatusBar,
   StyleSheet,
@@ -12,7 +13,7 @@ import Animated, {
   withTiming,
 } from 'react-native-reanimated';
 import { useThemeColor } from '@/hooks/useThemeColor';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { ThemedSafeAreaView } from '@/shared/component/ThemedSafeAreaView';
 
 interface ModalComponentProps {
   isVisible: boolean;
@@ -39,21 +40,20 @@ export const ModalComponent: FC<ModalComponentProps & PropsWithChildren> = ({
 
   return (
     <Animated.View
-      className={'bg-primary z-20'}
+      className={'bg-white-900 z-20'}
       style={[StyleSheet.absoluteFillObject, rnModalStyle]}
     >
       <StatusBar hidden />
-
-      {isVisible && (
-        <SafeAreaView className="flex-1 w-full h-full relative">
+      <Modal visible={isVisible}>
+        <ThemedSafeAreaView className="flex-1 relative bg-white-900">
           <View className="absolute top-0 left-0 items-center z-10">
             <Pressable onPress={onClose} className="p-4">
               <MaterialIcons name="close" color={white.DEFAULT} size={24} />
             </Pressable>
           </View>
-          <View className="flex-1 relative">{children}</View>
-        </SafeAreaView>
-      )}
+          <View className="flex-1">{children}</View>
+        </ThemedSafeAreaView>
+      </Modal>
     </Animated.View>
   );
 };

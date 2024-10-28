@@ -1,4 +1,4 @@
-import { QuestModel, QuestId, useQuestState } from '@/entities/quest';
+import { QuestModel, useQuestState } from '@/entities/quest';
 import { useMemo } from 'react';
 
 interface ReturnProps {

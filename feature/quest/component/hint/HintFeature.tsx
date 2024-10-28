@@ -1,36 +1,43 @@
 import { useState } from 'react';
 import { ModalComponent } from '@/shared/component';
-import { HintContent } from './HintContent';
+import { HintList } from './HintList';
 import { HintButton } from './HintButton';
+import { Text, View } from 'react-native';
 
-interface HintProps {
+interface HintFeatureProps {
   showHint: boolean;
   onSuccess: () => void;
 }
 
-export function HintFeature({ showHint, onSuccess }: HintProps) {
-  const [isOpenHint, setIsOpenHint] = useState(false);
+export function HintFeature({ showHint, onSuccess }: HintFeatureProps) {
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   return (
     <>
       {showHint && <HintButton onPress={onOpen} />}
 
-      <ModalComponent isVisible={isOpenHint} onClose={onClose}>
-        {isOpenHint && <HintContent onSuccess={handleSuccess} />}
+      <ModalComponent isVisible={isOpenModal} onClose={onClose}>
+        <View
+          className="flex-1 justify-center items-center py-2"
+          style={{ gap: 12 }}
+        >
+          <Text className="text-white text-2xl">Hints</Text>
+          <HintList onSuccess={handleSuccess} />
+        </View>
       </ModalComponent>
     </>
   );
 
   function onOpen() {
-    setIsOpenHint(true);
+    setIsOpenModal(true);
   }
 
   function onClose() {
-    setIsOpenHint(false);
+    setIsOpenModal(false);
   }
 
   function handleSuccess() {
-    onSuccess();
     onClose();
+    onSuccess();
   }
 }

@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { QuestComponent, QuestLayout } from '@/entities/quest';
 import { useQuestViewData } from '../model/useQuestViewData';
 import { HintFeature } from './hint/HintFeature';
-import { QuestScanner } from './QuestScanner';
+import { QuestScanner, ScannedResultType } from './QuestScanner';
 
 interface QuestFeatureProps {
   onSuccess: () => void;
@@ -18,8 +18,12 @@ export const QuestFeature: FC<QuestFeatureProps> = ({ onSuccess }) => {
       <HintFeature showHint={hasHint} onSuccess={showHint} />
 
       <QuestScanner
-        onScanned={(data) => {
-          return data === 'A5_312031422';
+        onScanned={(result) => {
+          if (result !== data?.answer) {
+            return ScannedResultType.INVALID;
+          }
+
+          handleSuccess();
         }}
       />
 

@@ -19,7 +19,7 @@ export const DefaultQuestStore: QuestModel[] = [
       imgUrl: images.cards as ImageURISource,
       text: 'Test quest text here 1',
     },
-    answer: 'TEST 1',
+    answer: 'A5_312031422',
     isPassed: false,
   },
   {
