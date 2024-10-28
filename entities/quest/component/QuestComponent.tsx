@@ -33,10 +33,10 @@ export const QuestComponent: FC<QuestComponentProps> = ({ quest, hints }) => {
           </Text>
           <View className="justify-center" style={{ gap: 10 }}>
             {hints.map((item, index) => (
-              <View className="bg-info-400 rounded-full p-2" key={index}>
+              <View className="bg-white-800 rounded-full p-2" key={index}>
                 <Text
                   key={item.text}
-                  className="text-xl text-white text-center"
+                  className="text-xl font-bold text-white-200 text-center"
                 >
                   {item.text}
                 </Text>
