@@ -1,18 +1,25 @@
+import {
+  AudioComponent,
+  ImageComponent,
+  VideoComponent,
+} from '@/shared/component';
 import { Text, View } from 'react-native';
-
-type Video = 'video';
-type Audio = 'audio';
-type Image = 'image';
+import {
+  HintAudioModel,
+  HintImageModel,
+  HintMediaType,
+  HintVideoModel,
+} from '../../model/hint/hintModel';
 
 interface HintItemMediaProps {
-  media: Video | Audio | Image;
+  media: HintVideoModel | HintAudioModel | HintImageModel;
   questionText?: string;
 }
 
 export function HintItemMedia({ media, questionText }: HintItemMediaProps) {
   return (
     <View
-      className="h-full w-full justify-start items-center"
+      className="h-full w-full justify-start items-center pt-3"
       style={{ gap: 12 }}
     >
       {questionText && (
@@ -21,7 +28,20 @@ export function HintItemMedia({ media, questionText }: HintItemMediaProps) {
         </Text>
       )}
 
-      <Text>{media}</Text>
+      {media.type === HintMediaType.VIDEO && (
+        <VideoComponent videoSource={media.videoUri} />
+      )}
+
+      {media.type === HintMediaType.AUDIO && (
+        <AudioComponent
+          audioSource={media.audioUri}
+          imageSource={media.posterUri}
+        />
+      )}
+
+      {media.type === HintMediaType.IMAGE && (
+        <ImageComponent imageSource={media.imageUri} />
+      )}
     </View>
   );
 }

@@ -1,24 +1,35 @@
-import { HintModel, HintType } from './hintModel';
+import { audio, images, video } from '@/constants';
+import { HintMediaType, HintModel, HintType } from './hintModel';
 
 export const DefaultHintStore: HintModel[] = [
   {
     id: '1',
-    media: 'image',
+    media: {
+      type: HintMediaType.VIDEO,
+      videoUri: video.test,
+    },
     questionText: 'What is the meaning of life?',
     type: HintType.CHOICE_ANSWER,
-    options: ['42', '69'],
+    options: ['42', '69', '73', '8666666 drhdrh '],
     answer: '42',
   },
   {
     id: '2',
-    media: 'image',
+    media: {
+      type: HintMediaType.AUDIO,
+      audioUri: audio.test,
+      posterUri: images.cards,
+    },
     type: HintType.CHOICE_ANSWER,
     options: ['42', '69', '73', '8666666 drhdrh '],
     answer: '42',
   },
   {
     id: '3',
-    media: 'image',
+    media: {
+      type: HintMediaType.IMAGE,
+      imageUri: images.cards,
+    },
     questionText: 'Question 3',
     type: HintType.CHOICE_ANSWER,
     options: ['42', '69'],
@@ -26,7 +37,10 @@ export const DefaultHintStore: HintModel[] = [
   },
   {
     id: '4',
-    media: 'image',
+    media: {
+      type: HintMediaType.IMAGE,
+      imageUri: images.cards,
+    },
     questionText: 'Question 4',
     type: HintType.CHOICE_ANSWER,
     options: ['42', '69'],
@@ -34,7 +48,10 @@ export const DefaultHintStore: HintModel[] = [
   },
   {
     id: '5',
-    media: 'image',
+    media: {
+      type: HintMediaType.IMAGE,
+      imageUri: images.cards,
+    },
     questionText: 'Question 5',
     type: HintType.CHOICE_ANSWER,
     options: ['42', '69'],
@@ -42,7 +59,10 @@ export const DefaultHintStore: HintModel[] = [
   },
   {
     id: '6',
-    media: 'image',
+    media: {
+      type: HintMediaType.IMAGE,
+      imageUri: images.cards,
+    },
     questionText: 'Question 6',
     type: HintType.CHOICE_ANSWER,
     options: ['42', '69'],
@@ -50,7 +70,10 @@ export const DefaultHintStore: HintModel[] = [
   },
   {
     id: '7',
-    media: 'image',
+    media: {
+      type: HintMediaType.IMAGE,
+      imageUri: images.cards,
+    },
     questionText: 'Question 7',
     type: HintType.CHOICE_ANSWER,
     options: ['42', '69'],
