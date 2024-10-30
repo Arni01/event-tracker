@@ -22,7 +22,7 @@ interface OnboardingProps {
   onPress: () => void;
 }
 
-export const OnboardingList: FC<OnboardingProps> = ({ data, onPress }) => {
+export const AnimatedList: FC<OnboardingProps> = ({ data, onPress }) => {
   const xPosition = useSharedValue(0);
   const flatListIndex = useSharedValue(0);
   const flatListRef = useAnimatedRef<Animated.FlatList<ItemModel>>();

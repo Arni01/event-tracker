@@ -31,8 +31,7 @@ export const DefaultHintStore: HintModel[] = [
       imageUri: images.cards,
     },
     questionText: 'Question 3',
-    type: HintType.CHOICE_ANSWER,
-    options: ['42', '69'],
+    type: HintType.TYPE_ANSWER,
     answer: '42',
   },
   {

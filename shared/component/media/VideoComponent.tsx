@@ -24,7 +24,6 @@ export function VideoComponent({ videoSource }: VideoComponentProps) {
         // isLooping
         onPlaybackStatusUpdate={handlePlaybackStatusUpdate}
       />
-      {}
       <View className="flex-row justify-center items-center">
         <MediaButton onPress={replayAudio} type="replay" />
         {isPlaying ? (

@@ -1,1 +1,0 @@
-export { OnboardingList } from './Onboarding';

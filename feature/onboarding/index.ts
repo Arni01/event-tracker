@@ -1,1 +1,1 @@
-export { WelcomeOnboarding } from './WelcomeOnboarding';
+export { WelcomeOnboarding } from './components/WelcomeOnboarding';

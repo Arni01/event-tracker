@@ -2,6 +2,7 @@ import { View } from 'react-native';
 import { HintItemMedia } from './HintItemMedia';
 import { HintItemSelect } from './HintItemSelect';
 import { HintModel, HintType } from '../../model/hint/hintModel';
+import { HintItemType } from './HintItemType';
 
 interface HintItemProps {
   item: HintModel;
@@ -26,14 +27,18 @@ export function HintItem({ onSuccess, item, onError }: HintItemProps) {
           <HintItemSelect
             options={item.options}
             answer={item.answer}
-            onSelect={handleSelect}
+            onSelect={handleSubmit}
           />
+        )}
+
+        {item.type === HintType.TYPE_ANSWER && (
+          <HintItemType answer={item.answer} onPress={handleSubmit} />
         )}
       </View>
     </View>
   );
 
-  function handleSelect(result: boolean) {
+  function handleSubmit(result: boolean) {
     return result ? onSuccess() : onError();
   }
 
