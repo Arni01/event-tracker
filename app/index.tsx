@@ -6,6 +6,7 @@ export default function HomePage() {
 
   if (isPassedOnboarding) {
     return <Redirect href="/(quest)/question" />;
+    // return <Redirect href="/(quest)/success" />;
   }
 
   return <Redirect href="/onboarding" />;

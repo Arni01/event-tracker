@@ -13,7 +13,7 @@ import { OnboardingButton } from './Button';
 
 interface ItemModel {
   id: string;
-  text: string;
+  text: string[];
   image: ImageURISource;
 }
 

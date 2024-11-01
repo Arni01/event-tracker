@@ -2,13 +2,13 @@ import { create } from 'zustand';
 import { DefaultHintStore } from './defaultHintStore';
 import { HintModel } from './hintModel';
 
-interface HintInitialStoreModel {
+interface HintStoreModel {
   data: HintModel[];
   passHint: (hintId: string) => void;
   moveHintToEnd: (hintId: string) => void;
 }
 
-export const useHintStore = create<HintInitialStoreModel>((set) => ({
+export const useHintStore = create<HintStoreModel>((set) => ({
   data: DefaultHintStore,
   passHint: (hintId: string) =>
     set((state) => ({

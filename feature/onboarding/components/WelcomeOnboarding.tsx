@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { AnimatedList, ThemedSafeAreaView } from '@/shared/component';
-import { WelcomeOnboardingData } from '../model/welcomeModel';
+import { WelcomeOnboardingData } from '../model/welcomeOnboardingData';
 
 interface WelcomeOnboardingProps {
   onPress: () => void;

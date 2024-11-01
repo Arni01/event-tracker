@@ -18,25 +18,33 @@ export const QuestComponent: FC<QuestComponentProps> = ({ quest, hints }) => {
         paddingBottom: 20,
         paddingTop: 60,
       }}
+      className="w-full h-full"
     >
-      <View style={{ gap: 20 }}>
-        <View className="flex-row w-full justify-center items-center rounded-xl overflow-hidden">
+      <View style={{ gap: 20 }} className="w-full justify-start items-center">
+        <View className="min-w-[200px] w-full max-w-[400px] max-h-[250px] h-full justify-center items-center rounded-2xl overflow-hidden">
           <Image
             source={quest.imgUrl}
-            className="w-full aspect-[4/3]"
+            className="w-full h-full"
             resizeMode="cover"
           />
         </View>
-        <View className="justify-center" style={{ gap: 30 }}>
-          <Text className="text-3xl font-semibold text-white text-center">
+        <View className="justify-center w-full" style={{ gap: 30 }}>
+          <Text className="text-xl font-bold text-white text-center">
             {quest.text}
           </Text>
           <View className="justify-center" style={{ gap: 10 }}>
             {hints.map((item, index) => (
-              <View className="bg-white-800 rounded-full p-2" key={index}>
+              <View
+                className="w-full bg-white-800 rounded-full"
+                style={{
+                  padding: 10,
+                  paddingHorizontal: 12,
+                }}
+                key={index}
+              >
                 <Text
                   key={item.text}
-                  className="text-xl font-bold text-white-200 text-center"
+                  className="text-xl font-medium text-white-200 text-center"
                 >
                   {item.text}
                 </Text>

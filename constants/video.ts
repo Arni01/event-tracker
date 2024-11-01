@@ -1,3 +1,3 @@
-const test = require('@/assets/hints/Test.mp4');
+const trafficLite = require('@/assets/hints/traffic_lite.mp4');
 
-export default { test };
+export default { trafficLite };

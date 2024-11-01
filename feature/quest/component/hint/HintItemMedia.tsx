@@ -23,7 +23,7 @@ export function HintItemMedia({ media, questionText }: HintItemMediaProps) {
       style={{ gap: 12 }}
     >
       {questionText && (
-        <Text className="text-accent text-2xl font-semibold">
+        <Text className="text-accent text-xl font-semibold">
           {questionText}
         </Text>
       )}

@@ -3,7 +3,7 @@ import { ModalComponent } from '@/shared/component';
 import { HintList } from './HintList';
 import { HintButton } from './HintButton';
 import { Text, View } from 'react-native';
-import { useHintStore } from '@/feature/quest/model/hint/useHintStore';
+import { useHintStore } from '../../model/hint/useHintStore';
 
 interface HintFeatureProps {
   hasHint: boolean;
