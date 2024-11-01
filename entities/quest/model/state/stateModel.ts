@@ -1,6 +1,7 @@
 import { QuestModel, QuestId } from '../questModel';
 
 export interface QuestStateModel {
+  iFinalQuestionPass: boolean;
   /**
    * @description Callback for getting current available quest.
    * @returns Quest data. Undefined if the quest is not found.

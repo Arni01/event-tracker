@@ -5,7 +5,8 @@ export default function HomePage() {
   const { isPassedOnboarding } = useOnboardingContext();
 
   if (isPassedOnboarding) {
-    return <Redirect href="/(quest)/question" />;
+    // return <Redirect href="/(quest)/question" />;
+    return <Redirect href="/(quest)/final" />;
     // return <Redirect href="/(quest)/success" />;
   }
 

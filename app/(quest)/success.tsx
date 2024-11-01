@@ -1,12 +1,18 @@
 import { useRouter } from 'expo-router';
 import { SuccessFeature } from '@/feature/success';
+import { useQuestState } from '@/entities/quest';
 
 export default function Success() {
   const router = useRouter();
+  const { iFinalQuestionPass } = useQuestState();
 
   return (
     <SuccessFeature
-      onNext={() => router.replace('/(quest)/question')}
+      onNext={() =>
+        router.replace(
+          iFinalQuestionPass ? '/(quest)/final' : '/(quest)/question'
+        )
+      }
     ></SuccessFeature>
   );
 }

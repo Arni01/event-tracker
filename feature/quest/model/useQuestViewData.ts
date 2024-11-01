@@ -1,4 +1,4 @@
-import { QuestModel, useQuestState } from '@/entities/quest';
+import { QuestId, QuestModel, useQuestState } from '@/entities/quest';
 import { useMemo } from 'react';
 
 interface ReturnProps {
@@ -7,6 +7,7 @@ interface ReturnProps {
    * @description Flag indicating whether the quest has hints. True if the quest has hints, false otherwise.
    */
   hasHint: boolean;
+
   /**
    * @description Function to show the quest hint
    */
@@ -31,6 +32,7 @@ export const useQuestViewData = (): ReturnProps => {
       hasHint: Boolean(currentQuest?.hints.some((hint) => !hint.isVisible)),
       showHint: () => currentQuest?.id && showHint(currentQuest?.id),
       passQuestion: () => currentQuest?.id && passQuestion(currentQuest?.id),
+      isLastQuest: currentQuest?.id === QuestId.FINAL_QUESTION,
     };
   }, [currentQuest]);
 

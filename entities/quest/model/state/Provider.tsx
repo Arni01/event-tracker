@@ -36,6 +36,7 @@ export const QuestProvider = ({ children }: PropsWithChildren) => {
   }
 
   const value: QuestStateModel = {
+    iFinalQuestionPass: state.data.length === 0,
     getAvailableQuest: () => {
       return state.data.find((item) => !item.isPassed);
     },

@@ -5,8 +5,9 @@ import path from '@/assets/images/path.png';
 import logo from '@/assets/images/logo.png';
 import logoSmall from '@/assets/images/logo-small.png';
 import empty from '@/assets/images/empty.png';
-import happyCat from '@/assets/images/happy_cat.jpg';
-import standUp from '@/assets/images/stand_up.jpg';
+import happyCat from '@/assets/success/happy_cat.jpg';
+import standUp from '@/assets/success/stand_up.jpg';
+import pickingUpCat from '@/assets/success/picking_up_cat.jpg';
 import stroller from '@/assets/hints/stroller.jpeg';
 import car from '@/assets/hints/car.jpeg';
 import sea from '@/assets/hints/sea.jpeg';
@@ -47,6 +48,7 @@ const hints = {
 const success = {
   happyCat,
   standUp,
+  pickingUpCat,
 };
 
 export default {

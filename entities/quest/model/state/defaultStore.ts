@@ -29,25 +29,6 @@ export const DefaultQuestStore: QuestModel[] = [
     id: QuestId.SECOND_QUESTION,
     hints: [
       {
-        text: 'I hold tiny dreams as the wheels spin around',
-        isVisible: false,
-      },
-      {
-        text: 'I bridge the adventures, from cradle to roam',
-        isVisible: false,
-      },
-    ],
-    quest: {
-      imgUrl: images.question.movingCat,
-      text: 'A guardian of comfort, in motion I excel. What am I, where safety and love intertwine well?',
-    },
-    answer: 'THE_ANSWER_OF_THE_QUESTION_IN_THE_BABY_CAR_SEAT',
-    isPassed: false,
-  },
-  {
-    id: QuestId.THIRD_QUESTION,
-    hints: [
-      {
         text: 'A portal for secrets, where dreams softly leap',
         isVisible: false,
       },
@@ -61,6 +42,25 @@ export const DefaultQuestStore: QuestModel[] = [
       text: 'I stand in stillness, yet carry the weight of thoughts and desires, both small and great. What am I, where moments and memories conflate?',
     },
     answer: 'THE_ANSWER_OF_THE_QUESTION_IN_THE_POST_BOX',
+    isPassed: false,
+  },
+  {
+    id: QuestId.THIRD_QUESTION,
+    hints: [
+      {
+        text: 'I hold tiny dreams as the wheels spin around',
+        isVisible: false,
+      },
+      {
+        text: 'I bridge the adventures, from cradle to roam',
+        isVisible: false,
+      },
+    ],
+    quest: {
+      imgUrl: images.question.movingCat,
+      text: 'A guardian of comfort, in motion I excel. What am I, where safety and love intertwine well?',
+    },
+    answer: 'THE_ANSWER_OF_THE_QUESTION_IN_THE_BABY_CAR_SEAT',
     isPassed: false,
   },
   {

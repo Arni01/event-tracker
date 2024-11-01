@@ -19,9 +19,9 @@ export default function QuestLayout() {
           animation: 'slide_from_right',
         }}
       >
-        {/* <Stack.Screen name="index" options={{ headerShown: false }} /> */}
         <Stack.Screen name="question" options={{ headerShown: false }} />
         <Stack.Screen name="success" options={{ headerShown: false }} />
+        <Stack.Screen name="final" options={{ headerShown: false }} />
       </Stack>
     </QuestProvider>
   );
