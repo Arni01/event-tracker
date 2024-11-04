@@ -26,31 +26,6 @@ export const QuestFeature: FC<QuestFeatureProps> = ({ onSuccess }) => {
           handleSuccess();
         }}
       />
-
-      {/* <View className="w-full justify-center items-center pt-3">
-        <CustomButton handlePress={handleSuccess} title="Scan" /> */}
-      {/* <CustomButton handlePress={() => setIsOpenScanner(true)} title="Scan" /> */}
-      {/* </View> */}
-      {/* <Scanner
-        isVisible={isOpenScanner}
-        onClose={() => setIsOpenScanner(false)}
-        onScanned={(data) => {
-          console.log('RESULT_OF_SCANNING: ', data);
-
-          if (data === 'A5_312031422') {
-            return {
-              rescan: true,
-            };
-          }
-
-          setIsOpenScanner(false);
-          // nextQuestion();
-
-          // return {
-          //   rescan: true,
-          // };
-        }}
-      /> */}
     </QuestLayout>
   );
 

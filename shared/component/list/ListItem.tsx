@@ -53,7 +53,7 @@ const ListItemComponent = ({ item, index, x }: ListItemProps) => {
     >
       <View
         className="flex-shrink w-full justify-start items-center"
-        style={{ gap: 12 }}
+        style={{ gap: 20 }}
       >
         <View className="flex-shrink min-w-[200px] w-full max-w-[400px] max-h-[500px] h-full rounded-2xl overflow-hidden items-center justify-center">
           <Image
@@ -63,11 +63,13 @@ const ListItemComponent = ({ item, index, x }: ListItemProps) => {
             resizeMode="contain"
           />
         </View>
-        <View>
+        <View style={{ gap: 8 }}>
           {item.text.map((text, index) => (
             <Text
               key={index}
-              className={'font-semibold text-2xl text-accent text-center'}
+              className={
+                'font-semibold text-[22px] leading-7 text-accent text-center'
+              }
             >
               {text}
             </Text>

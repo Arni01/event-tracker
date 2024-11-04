@@ -20,7 +20,7 @@ export const DefaultQuestStore: QuestModel[] = [
     ],
     quest: {
       imgUrl: images.question.thinkingCat,
-      text: 'I hold potential, unseen yet bright. In stillness I wait, to bring forth delight. What am I, where change takes its flight?',
+      text: 'I hold potential, hidden but clear. In silence I wait, to bring forth delight. What am I, where change begins to appear?',
     },
     answer: 'THE_ANSWER_OF_THE_QUESTION_IN_THE_OVEN',
     isPassed: false,
@@ -39,7 +39,7 @@ export const DefaultQuestStore: QuestModel[] = [
     ],
     quest: {
       imgUrl: images.question.readingCat,
-      text: 'I stand in stillness, yet carry the weight of thoughts and desires, both small and great. What am I, where moments and memories conflate?',
+      text: 'I stand quietly, holding thoughts and dreams, both small and great. What am I, where moments and memories conflate?',
     },
     answer: 'THE_ANSWER_OF_THE_QUESTION_IN_THE_POST_BOX',
     isPassed: false,
@@ -52,7 +52,7 @@ export const DefaultQuestStore: QuestModel[] = [
         isVisible: false,
       },
       {
-        text: 'I bridge the adventures, from cradle to roam',
+        text: 'I bridge the adventures, from cot to the journey',
         isVisible: false,
       },
     ],
@@ -71,13 +71,13 @@ export const DefaultQuestStore: QuestModel[] = [
         isVisible: false,
       },
       {
-        text: 'I’m a haven for arms when the road feels long',
+        text: "I'm a rest for the arm when the road feels long",
         isVisible: false,
       },
     ],
     quest: {
       imgUrl: images.question.restCat,
-      text: 'I bridge the divide, yet offer no view, A quiet companion when journeys ensue. What am I, where comfort and space accrue?',
+      text: "I close the gap, though there's nothing to see, A quiet companion when journeys ensue. What am I, where comfort and space agree?",
     },
     answer: 'THE_ANSWER_OF_THE_QUESTION_IN_THE_CAR',
     isPassed: false,
@@ -96,7 +96,7 @@ export const DefaultQuestStore: QuestModel[] = [
     ],
     quest: {
       imgUrl: images.question.final,
-      text: 'Use your keys, where 10 = 14, 19 = 31',
+      text: 'Use your keys, where 14 = 10, 31 = 19',
     },
     answer: 'A_31_203_14_22',
     isPassed: false,
